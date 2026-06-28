@@ -55,10 +55,10 @@ const etapas = [
 
 export default function ProcessoPage() {
   return (
-    <main>
+    <main id="main-content">
       {/* Banner */}
       <section className="pt-16 md:pt-20 bg-brand-bg border-b border-brand-border">
-        <div className="container mx-auto py-20 max-w-3xl">
+        <div className="container mx-auto py-12 md:py-20 max-w-3xl">
           <p className="font-yantra text-brand-accent text-sm font-semibold uppercase tracking-widest mb-4">
             Nosso Processo
           </p>
@@ -72,33 +72,33 @@ export default function ProcessoPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-brand-surface">
+      <section className="py-12 md:py-20 bg-brand-surface">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {etapas.map((etapa, idx) => (
+            {etapas.map((etapa, idx) => (
+              <div
+                key={etapa.numero}
+                className="flex flex-col gap-4 p-6 border border-brand-border rounded-md bg-brand-bg hover:border-brand-ebony transition-colors"
+              >
                 <div
-                  key={etapa.numero}
-                  className="flex flex-col gap-4 p-6 border border-brand-border rounded-md bg-brand-bg hover:border-brand-ebony transition-colors"
+                  className={`
+                    w-10 h-10 rounded-full flex items-center justify-center shrink-0
+                    font-bold text-sm text-white
+                    ${idx < etapas.length - 1 ? "bg-brand-accent" : "bg-brand-dark"}
+                  `}
                 >
-                  <div
-                    className={`
-                      w-10 h-10 rounded-full flex items-center justify-center shrink-0
-                      font-bold text-sm text-white
-                      ${idx < etapas.length - 1 ? "bg-brand-accent" : "bg-brand-dark"}
-                    `}
-                  >
-                    {etapa.numero}
-                  </div>
-                  <h2 className="font-display text-lg font-semibold text-brand-dark">{etapa.titulo}</h2>
-                  <p className="text-brand-muted text-sm leading-relaxed">{etapa.descricao}</p>
+                  {etapa.numero}
                 </div>
-              ))}
+                <h2 className="font-display text-lg font-semibold text-brand-dark">{etapa.titulo}</h2>
+                <p className="text-brand-muted text-sm leading-relaxed">{etapa.descricao}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-brand-dark">
+      <section className="py-12 md:py-20 bg-brand-dark">
         <div className="container mx-auto text-center flex flex-col items-center gap-6">
           <h2 className="font-display text-3xl font-bold text-brand-bg max-w-xl text-balance">
             Pronto para dar o primeiro passo?

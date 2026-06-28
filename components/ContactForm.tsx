@@ -6,6 +6,7 @@ interface FormFields {
   nome: string;
   telefone: string;
   mensagem: string;
+  _hp: string;
 }
 
 interface FormErrors {
@@ -31,6 +32,7 @@ export default function ContactForm() {
     nome: "",
     telefone: "",
     mensagem: "",
+    _hp: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -77,7 +79,7 @@ export default function ContactForm() {
         <button
           onClick={() => {
             setStatus("idle");
-            setFields({ nome: "", telefone: "", mensagem: "" });
+            setFields({ nome: "", telefone: "", mensagem: "", _hp: "" });
           }}
           className="mt-2 text-sm text-brand-accent underline underline-offset-2"
         >
@@ -94,6 +96,18 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      {/* Honeypot — campo invisível para bots */}
+      <input
+        type="text"
+        name="_hp"
+        value={fields._hp}
+        onChange={handleChange}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }}
+      />
+
       {/* Nome */}
       <div>
         <label htmlFor="nome" className="block text-sm font-medium text-brand-dark mb-1">

@@ -27,10 +27,10 @@ const ambientes = [
 
 export default function AmbientesPage() {
   return (
-    <main>
+    <main id="main-content">
       {/* Banner */}
       <section className="pt-16 md:pt-20 bg-brand-bg border-b border-brand-border">
-        <div className="container mx-auto py-20 max-w-3xl">
+        <div className="container mx-auto py-12 md:py-20 max-w-3xl">
           <p className="font-yantra text-brand-accent text-sm font-semibold uppercase tracking-widest mb-4">
             Portfólio
           </p>
@@ -44,7 +44,7 @@ export default function AmbientesPage() {
       </section>
 
       {/* Grid de categorias */}
-      <section className="py-20 bg-brand-surface">
+      <section className="py-12 md:py-20 bg-brand-surface">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {ambientes.map((ambiente) => (
@@ -77,7 +77,7 @@ export default function AmbientesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-dark">
+      <section className="py-10 md:py-16 bg-brand-dark">
         <div className="container mx-auto text-center flex flex-col items-center gap-5">
           <h2 className="font-display text-2xl font-bold text-brand-bg">
             Não encontrou o ambiente que procura?

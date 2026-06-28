@@ -56,10 +56,10 @@ const diferenciais = [
 
 export default function EmpresaPage() {
   return (
-    <main>
+    <main id="main-content">
       {/* Banner */}
       <section className="pt-16 md:pt-20 bg-brand-bg border-b border-brand-border">
-        <div className="container mx-auto py-20 max-w-3xl">
+        <div className="container mx-auto py-12 md:py-20 max-w-3xl">
           <p className="font-yantra text-brand-accent text-sm font-semibold uppercase tracking-widest mb-4">
             Nossa Empresa
           </p>
@@ -74,7 +74,7 @@ export default function EmpresaPage() {
       </section>
 
       {/* Números */}
-      <section className="bg-brand-ebony py-14">
+      <section className="bg-brand-ebony py-10 md:py-14">
         <div className="container mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {numeros.map((n) => (
@@ -88,7 +88,7 @@ export default function EmpresaPage() {
       </section>
 
       {/* Nossa história */}
-      <section className="py-20 bg-brand-surface">
+      <section className="py-12 md:py-20 bg-brand-surface">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex flex-col gap-6">
@@ -98,7 +98,6 @@ export default function EmpresaPage() {
               <h2 className="font-display text-3xl font-bold text-brand-dark">De projeto em projeto, construímos nossa reputação.</h2>
               <div className="flex flex-col gap-4 text-brand-muted leading-relaxed">
                 <p>
-                  {/* Placeholder: substituir pelo texto real do cliente na Fase 4 */}
                   Fundada há mais de 15 anos, a Movelart nasceu com um propósito claro: entregar
                   móveis planejados que combinam funcionalidade, sofisticação e durabilidade para
                   residências da Grande Florianópolis.
@@ -127,7 +126,7 @@ export default function EmpresaPage() {
       </section>
 
       {/* Diferenciais */}
-      <section className="py-20 bg-brand-bg">
+      <section className="py-12 md:py-20 bg-brand-bg">
         <div className="container mx-auto">
           <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
             Diferenciais
@@ -135,7 +134,7 @@ export default function EmpresaPage() {
           <h2 className="font-display text-3xl font-bold text-brand-dark mb-3">
             O que nos diferencia
           </h2>
-          <p className="text-brand-muted mb-12 max-w-xl">
+          <p className="text-brand-muted mb-8 md:mb-12 max-w-xl">
             Entregamos projetos que transformam o modo como você vive.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -159,7 +158,7 @@ export default function EmpresaPage() {
       </section>
 
       {/* Localização */}
-      <section className="py-16 bg-brand-surface border-t border-brand-border">
+      <section className="py-10 md:py-16 bg-brand-surface border-t border-brand-border">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Mapa placeholder */}
@@ -195,7 +194,7 @@ export default function EmpresaPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-brand-dark">
+      <section className="py-12 md:py-20 bg-brand-dark">
         <div className="container mx-auto text-center flex flex-col items-center gap-6">
           <h2 className="font-display text-3xl md:text-4xl font-bold max-w-2xl text-balance text-brand-bg">
             Pronto para conhecer nosso trabalho?

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import GaleriaAmbiente from "@/components/GaleriaAmbiente";
 
 const ambientes: Record<string, string> = {
   cozinha: "Cozinha",
@@ -38,10 +39,10 @@ export default function AmbienteSlugPage({ params }: { params: { slug: string } 
   if (!nome) notFound();
 
   return (
-    <main>
+    <main id="main-content">
       {/* Banner */}
       <section className="pt-16 md:pt-20 bg-brand-bg border-b border-brand-border">
-        <div className="container mx-auto py-16">
+        <div className="container mx-auto py-10 md:py-16">
           <Link
             href="/ambientes"
             className="inline-flex items-center gap-2 text-brand-ebony hover:text-brand-accent font-medium text-sm mb-8 group transition-colors"
@@ -58,31 +59,15 @@ export default function AmbienteSlugPage({ params }: { params: { slug: string } 
         </div>
       </section>
 
-      {/* Galeria */}
-      <section className="py-20 bg-brand-surface">
+      {/* Galeria com lightbox */}
+      <section className="py-12 md:py-20 bg-brand-surface">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-[4/3] bg-brand-border rounded-md flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
-                role="button"
-                aria-label={`Abrir foto ${i + 1}`}
-                tabIndex={0}
-              >
-                {/* Placeholder: substituir por <Image> na Fase 4; lightbox na Fase 3 */}
-                <div className="text-center text-brand-muted">
-                  <p className="font-medium text-sm">Foto {i + 1}</p>
-                  <p className="text-xs mt-1">{nome}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <GaleriaAmbiente nome={nome} count={6} />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-dark">
+      <section className="py-10 md:py-16 bg-brand-dark">
         <div className="container mx-auto text-center flex flex-col items-center gap-5">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-balance max-w-xl text-brand-bg">
             Quer um projeto como este para a sua residência?

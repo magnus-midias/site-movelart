@@ -13,3 +13,13 @@
     font-size: 16px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-whatsapp-pulse {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
