@@ -9,7 +9,6 @@ const navLinks = [
   { href: "/contato", label: "Contato" },
 ];
 
-// Placeholder: confirmar redes sociais ativas com o cliente (Fase 0)
 const socialLinks = [
   {
     label: "Instagram",
@@ -37,73 +36,81 @@ export default function Footer() {
 
   return (
     <footer className="bg-brand-surface border-t border-brand-border">
-      <div className="container mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* Logo + tagline */}
-        <div className="flex flex-col gap-4">
-          <Logo variant="dark" />
-          <p className="text-sm text-brand-muted max-w-xs">
-            Móveis planejados de alto padrão para a sua casa.
-            Grande Florianópolis, SC.
-          </p>
-          <div className="flex items-center gap-3 mt-2">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="text-brand-muted hover:text-brand-accent transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-        </div>
+      <div className="container mx-auto py-10 md:py-12">
+        {/*
+          Mobile: logo full-width em cima, nav + contato lado a lado em baixo
+          Desktop: 3 colunas iguais
+        */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
 
-        {/* Navegação */}
-        <nav aria-label="Navegação do rodapé">
-          <h3 className="font-yantra text-sm font-semibold uppercase tracking-widest text-brand-ebony mb-4">
-            Navegação
-          </h3>
-          <ul className="flex flex-col gap-2">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-brand-muted hover:text-brand-dark transition-colors"
+          {/* Logo + tagline + sociais — full width no mobile */}
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-3">
+            <Logo variant="dark" />
+            <p className="text-sm text-brand-muted max-w-xs leading-relaxed">
+              Móveis planejados de alto padrão para a sua casa.
+              Grande Florianópolis, SC.
+            </p>
+            <div className="flex items-center gap-1 mt-1">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="text-brand-muted hover:text-brand-accent transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
 
-        {/* Contato */}
-        <div>
-          <h3 className="font-yantra text-sm font-semibold uppercase tracking-widest text-brand-ebony mb-4">
-            Contato
-          </h3>
-          <ul className="flex flex-col gap-2 text-sm text-brand-muted">
-            <li>📍 Grande Florianópolis, SC</li>
-            <li>
-              <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5548963406360"}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de saber mais sobre móveis planejados.")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-brand-dark transition-colors"
-              >
-                📞 (48) 9634-0636
-              </a>
-            </li>
-            <li>
-              <a href="mailto:contato@empresa.com.br" className="hover:text-brand-dark transition-colors">
-                ✉️ contato@empresa.com.br {/* placeholder */}
-              </a>
-            </li>
-            <li>🕐 Seg–Sex: 08h–18h | Sáb: 09h–13h</li>
-          </ul>
+          {/* Navegação */}
+          <nav aria-label="Navegação do rodapé">
+            <h3 className="font-yantra text-xs font-semibold uppercase tracking-widest text-brand-ebony mb-4">
+              Navegação
+            </h3>
+            <ul className="flex flex-col gap-2.5">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-brand-muted hover:text-brand-dark transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Contato */}
+          <div>
+            <h3 className="font-yantra text-xs font-semibold uppercase tracking-widest text-brand-ebony mb-4">
+              Contato
+            </h3>
+            <ul className="flex flex-col gap-2.5 text-sm text-brand-muted">
+              <li>Grande Florianópolis, SC</li>
+              <li>
+                <a
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5548963406360"}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de saber mais sobre móveis planejados.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-dark transition-colors"
+                >
+                  (48) 9634-0636
+                </a>
+              </li>
+              <li>
+                <a href="mailto:contato@empresa.com.br" className="hover:text-brand-dark transition-colors">
+                  contato@empresa.com.br
+                </a>
+              </li>
+              <li className="leading-relaxed">Seg–Sex: 08h–18h<br />Sáb: 09h–13h</li>
+            </ul>
+          </div>
+
         </div>
       </div>
 

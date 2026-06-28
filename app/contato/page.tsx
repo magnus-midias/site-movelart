@@ -98,25 +98,36 @@ export default function ContatoPage() {
 
         {/* Conteúdo principal */}
         <section className="py-12 md:py-20 bg-brand-surface">
-          <div className="container mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Coluna esquerda — informações */}
-              <AnimateIn>
+          <div className="container mx-auto max-w-5xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+              {/* Formulário — primeiro no mobile (order-1), direita no desktop (lg:order-2) */}
+              <AnimateIn delay={0.05} className="order-1 lg:order-2">
+                <div className="bg-brand-bg border border-brand-border rounded-md p-6 md:p-8">
+                  <h2 className="font-display text-xl font-bold text-brand-dark mb-6">
+                    Solicitar orçamento
+                  </h2>
+                  <ContactForm />
+                </div>
+              </AnimateIn>
+
+              {/* Informações — segundo no mobile (order-2), esquerda no desktop (lg:order-1) */}
+              <AnimateIn className="order-2 lg:order-1">
                 <div className="flex flex-col gap-8">
                   <div>
-                    <h2 className="font-display text-2xl font-bold text-brand-dark mb-6">
+                    <h2 className="font-display text-xl font-bold text-brand-dark mb-4">
                       Canais de atendimento
                     </h2>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-3">
                       {canaisContato.map((canal) => (
                         <div
                           key={canal.titulo}
-                          className="p-5 border border-brand-border rounded-md bg-brand-bg"
+                          className="p-4 border border-brand-border rounded-md bg-brand-bg"
                         >
                           <h3 className="font-semibold text-brand-dark text-sm">{canal.titulo}</h3>
-                          <p className="text-brand-muted text-sm mt-1">{canal.descricao}</p>
+                          <p className="text-brand-muted text-sm mt-0.5">{canal.descricao}</p>
                           {canal.valor && (
-                            <p className="font-medium text-brand-dark mt-1 text-sm">{canal.valor}</p>
+                            <p className="font-medium text-brand-dark mt-0.5 text-sm">{canal.valor}</p>
                           )}
                         </div>
                       ))}
@@ -124,7 +135,7 @@ export default function ContatoPage() {
                   </div>
 
                   <div>
-                    <h2 className="font-display text-xl font-bold text-brand-dark mb-4">
+                    <h2 className="font-display text-lg font-bold text-brand-dark mb-3">
                       Área de atuação
                     </h2>
                     <div className="aspect-video bg-brand-border rounded-md flex items-center justify-center">
@@ -133,7 +144,7 @@ export default function ContatoPage() {
                         <p className="text-xs mt-1">Fase 4</p>
                       </div>
                     </div>
-                    <ul className="mt-4 flex flex-wrap gap-2">
+                    <ul className="mt-3 flex flex-wrap gap-2">
                       {["Florianópolis", "São José", "Palhoça", "Biguaçu", "Santo Amaro"].map((c) => (
                         <li
                           key={c}
@@ -147,15 +158,6 @@ export default function ContatoPage() {
                 </div>
               </AnimateIn>
 
-              {/* Coluna direita — formulário */}
-              <AnimateIn delay={0.1}>
-                <div className="bg-brand-bg border border-brand-border rounded-md p-6 md:p-8">
-                  <h2 className="font-display text-xl font-bold text-brand-dark mb-6">
-                    Solicitar orçamento
-                  </h2>
-                  <ContactForm />
-                </div>
-              </AnimateIn>
             </div>
           </div>
         </section>

@@ -12,7 +12,6 @@ const navLinks = [
   { href: "/contato", label: "Contato" },
 ];
 
-// Placeholder: confirmar redes sociais ativas com o cliente (Fase 0)
 const socialLinks = [
   {
     label: "Instagram",
@@ -56,119 +55,128 @@ export default function Header() {
         setMenuOpen(false);
       }
     };
+    const onScroll = () => setMenuOpen(false);
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onOutside);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("mousedown", onOutside);
+      window.removeEventListener("scroll", onScroll);
     };
   }, [menuOpen]);
 
   return (
-    <header
-      ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-brand-surface border-b border-brand-border shadow-sm"
-          : "bg-brand-surface/80 backdrop-blur-sm border-b border-transparent"
-      }`}
-    >
-      <div className="container mx-auto flex items-center justify-between h-16 md:h-20">
-        <Logo />
-
-        {/* Nav desktop */}
-        <nav className="hidden md:flex items-center gap-6" aria-label="Navegação principal">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-brand-dark hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:rounded-sm"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Redes sociais + CTA (desktop) */}
-        <div className="hidden md:flex items-center gap-4">
-          {socialLinks.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              className="text-brand-muted hover:text-brand-accent transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
-            >
-              {social.icon}
-            </a>
-          ))}
-          <Link
-            href="/contato"
-            className="bg-brand-accent hover:bg-brand-accent-hover text-white text-sm font-semibold px-5 py-2.5 rounded-md transition-colors min-h-[44px] flex items-center"
-          >
-            Solicitar orçamento
-          </Link>
-        </div>
-
-        {/* Hamburguer (mobile) */}
-        <div className="flex md:hidden items-center gap-3">
-          {socialLinks.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              className="text-brand-muted hover:text-brand-accent transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
-            >
-              {social.icon}
-            </a>
-          ))}
-          <button
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-            aria-expanded={menuOpen}
-            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-dark"
-          >
-            {menuOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Drawer mobile */}
+    <>
+      {/* Overlay que escurece o fundo quando menu mobile está aberto */}
       {menuOpen && (
-        <nav
-          className="md:hidden bg-brand-surface border-t border-brand-border px-4 py-6 flex flex-col gap-4"
-          aria-label="Navegação mobile"
-        >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-base font-medium text-brand-dark hover:text-brand-accent transition-colors py-2"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contato"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 bg-brand-accent hover:bg-brand-accent-hover text-white text-sm font-semibold px-5 py-3 rounded-md text-center transition-colors min-h-[44px] flex items-center justify-center"
-          >
-            Solicitar orçamento
-          </Link>
-        </nav>
+        <div
+          className="fixed inset-0 z-30 bg-brand-dark/50 md:hidden"
+          aria-hidden="true"
+          onClick={() => setMenuOpen(false)}
+        />
       )}
-    </header>
+
+      <header
+        ref={headerRef}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? "bg-brand-surface border-b border-brand-border shadow-sm"
+            : "bg-brand-surface/80 backdrop-blur-sm border-b border-transparent"
+        }`}
+      >
+        <div className="container mx-auto flex items-center justify-between h-16 md:h-20">
+          <Logo />
+
+          {/* Nav desktop */}
+          <nav className="hidden md:flex items-center gap-6" aria-label="Navegação principal">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-brand-dark hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:rounded-sm"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Redes sociais + CTA (desktop) */}
+          <div className="hidden md:flex items-center gap-4">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="text-brand-muted hover:text-brand-accent transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              >
+                {social.icon}
+              </a>
+            ))}
+            <Link
+              href="/contato"
+              className="bg-brand-accent hover:bg-brand-accent-hover text-white text-sm font-semibold px-5 py-2.5 rounded-md transition-colors min-h-[44px] flex items-center"
+            >
+              Solicitar orçamento
+            </Link>
+          </div>
+
+          {/* Ícones sociais + hamburguer (mobile) */}
+          <div className="flex md:hidden items-center gap-1">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="text-brand-muted hover:text-brand-accent transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              >
+                {social.icon}
+              </a>
+            ))}
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={menuOpen}
+              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-dark"
+            >
+              {menuOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Drawer mobile */}
+        {menuOpen && (
+          <nav
+            className="md:hidden bg-brand-surface border-t border-brand-border shadow-lg"
+            aria-label="Navegação mobile"
+          >
+            {navLinks.map((link, i) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center px-6 py-4 text-base font-medium text-brand-dark hover:text-brand-accent hover:bg-brand-bg transition-colors ${
+                  i < navLinks.length - 1 ? "border-b border-brand-border" : ""
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        )}
+      </header>
+    </>
   );
 }
