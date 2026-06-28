@@ -29,6 +29,10 @@ function log(event: string, data: Record<string, unknown> = {}) {
   );
 }
 
+function sanitize(str: string): string {
+  return str.trim().replace(/<[^>]*>/g, "").slice(0, 2000);
+}
+
 export async function POST(req: NextRequest) {
   const ip =
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
@@ -56,19 +60,19 @@ export async function POST(req: NextRequest) {
 
   const { _hp, nome, telefone, mensagem } = parsed.data;
 
+  const nomeSanitizado = sanitize(nome);
+  const telefoneSanitizado = sanitize(telefone);
+  const mensagemSanitizada = mensagem ? sanitize(mensagem) : undefined;
+
   // Honeypot: if filled, it's a bot — silently accept to avoid giving it away
   if (_hp) {
     log("contact_blocked", { reason: "honeypot" });
     return NextResponse.json({ success: true });
   }
 
-  // TODO Fase 3: integrar Resend e/ou Telegram Bot
+  // TODO Fase 4: integrar Resend e/ou Telegram Bot
   log("contact_submitted", { status: "success" });
-
-  // suppress unused variable warnings
-  void nome;
-  void telefone;
-  void mensagem;
+  void nomeSanitizado; void telefoneSanitizado; void mensagemSanitizada;
 
   return NextResponse.json({ success: true });
 }

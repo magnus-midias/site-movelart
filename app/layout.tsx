@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import MotionProvider from "@/components/MotionProvider";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -35,9 +36,7 @@ export const metadata: Metadata = {
   description:
     "Móveis planejados de alto padrão para residências na Grande Florianópolis, SC. Projetos personalizados, instalação própria e garantia.",
   metadataBase: new URL("https://movelart.com.br"),
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -70,7 +69,10 @@ export default function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html lang="pt-BR" className={`${openSans.variable} ${yantramanav.variable} ${mulish.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${openSans.variable} ${yantramanav.variable} ${mulish.variable}`}
+    >
       <head>
         {gtmId && (
           <Script
@@ -93,17 +95,18 @@ export default function RootLayout({
             />
           </noscript>
         )}
-        {/* Skip link: acessibilidade por teclado */}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-surface focus:text-brand-dark focus:px-4 focus:py-2 focus:rounded-md focus:border focus:border-brand-border focus:shadow-md"
         >
           Pular para o conteúdo principal
         </a>
-        <Header />
-        {children}
-        <Footer />
-        <WhatsAppButton />
+        <MotionProvider>
+          <Header />
+          {children}
+          <Footer />
+          <WhatsAppButton />
+        </MotionProvider>
       </body>
     </html>
   );

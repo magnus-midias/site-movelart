@@ -1,8 +1,8 @@
 # Plano de ação — site-movelart
 
-Data de referência: 2026-06-27
+Data de referência: 2026-06-28
 
-Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcialmente feito; leads e lightbox pendentes). Fase 0 bloqueada em items que dependem do cliente. Próxima: concluir Fase 3 (integração de leads, Google Maps, lightbox).
+Estado atual: Fases 1, 2 e 3A concluídas. Fase 3B concluída (animações, segurança, acessibilidade, BreadcrumbList). Próxima: checkpoint com cliente → Fase 4.
 
 ---
 
@@ -23,8 +23,9 @@ Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcial
 - [x] Confirmar número de WhatsApp comercial — `(48) 9634-0636`
 - [x] Confirmar redes sociais — Instagram: `@movelartoficial`
 - [ ] Confirmar URL do domínio definitivo do cliente
+- [ ] Fornecer container ID do GTM (se o cliente quiser Analytics)
 
-**Status:** 🔄 Em andamento — pendente: canal de leads, logo, fotos, textos, domínio
+**Status:** 🔄 Em andamento — pendente: canal de leads, logo, fotos, textos, domínio, GTM
 
 ---
 
@@ -66,23 +67,64 @@ Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcial
 
 ---
 
-## Fase 3 — Funcionalidades e Integrações
+## Fase 3A — SEO, Segurança e Acessibilidade Base
 
-**Objetivo:** Todas as integrações funcionando com dados de teste.
+**Objetivo:** Conformidade de SEO técnico, segurança e acessibilidade antes das animações.
 
-- [ ] **Integração de leads** — Resend e/ou Telegram Bot _(bloqueado: canal a confirmar com cliente)_
-- [ ] **Lightbox** de galeria nas páginas de ambiente (sem lib pesada)
-- [ ] **Google Maps embed** na página de Contato e Empresa _(bloqueado: endereço real pendente)_
 - [x] SEO técnico: Open Graph, Twitter Card, canonical em todas as páginas
 - [x] `robots.txt` via `app/robots.ts`
 - [x] Sitemap via `app/sitemap.ts`
 - [x] Schema.org LocalBusiness em `/contato`
-- [x] Header scroll effect
+- [x] Schema.org Organization em `/`
+- [x] HTTP Security Headers em `next.config.mjs`
+- [x] `public/llms.txt` para crawlers de IA
+- [x] `prefers-reduced-motion` em `globals.css`
+- [x] Lightbox em `GaleriaAmbiente.tsx` (keyboard nav, aria-modal)
+- [x] Validação Zod + rate limiting + honeypot no `POST /api/contato`
+- [x] GTM condicional via `NEXT_PUBLIC_GTM_ID`
+- [x] Skip link para acessibilidade por teclado
+- [x] `id="main-content"` em todas as páginas
+- [x] Mobile padding reduzido (`py-12 md:py-20`)
 
-**Pendentes que NÃO dependem de cliente:**
-- [ ] Lightbox de galeria
+**Status:** ✅ Concluída — ver histórico `08-framework-institucional-qualidade-2026-06-27.md`
 
-**Status:** 🔄 Em andamento — SEO técnico concluído; leads e Google Maps aguardam cliente; lightbox pendente
+---
+
+## Fase 3B — Animações, Segurança Avançada e BreadcrumbList
+
+**Objetivo:** Animações premium, sanitização de inputs, acessibilidade de menu e Schema.org BreadcrumbList.
+
+- [x] Instalar Framer Motion
+- [x] `MotionProvider.tsx` — `MotionConfig reducedMotion="user"` global no layout
+- [x] `AnimateIn.tsx` — fade-up com trigger por mount ou scroll (viewport)
+- [x] `StaggerList.tsx` + `StaggerItem.tsx` — stagger de cards com 80ms de delay entre itens
+- [x] `CounterNumber.tsx` — contagem animada ao entrar na viewport (ease-out-cubic 1.4s)
+- [x] `BreadcrumbSchema.tsx` — componente de Schema.org BreadcrumbList reutilizável
+- [x] Home — hero fade-up (mount), seções fade-up (scroll), cards stagger
+- [x] Empresa — hero fade-up, counter animado nos números, cards stagger
+- [x] Ambientes index — hero fade-up, cards stagger
+- [x] Ambientes [slug] — hero fade-up, BreadcrumbList 3 níveis, breadcrumb visual
+- [x] Processo — hero fade-up, etapas stagger
+- [x] Contato — hero fade-up, colunas animadas com delay
+- [x] Sanitização de inputs (`sanitize()`) em `route.ts` — trim + strip HTML
+- [x] Header: Escape + clique fora fecha menu mobile
+- [x] Header: `focus-visible:ring` nos links de nav desktop
+- [x] Audit npm: vulnerabilidades registradas (Next.js 14.2.35 — upgrade recomendado na Fase 5)
+
+**Status:** ✅ Concluída — ver histórico `09-fase-3b-animacoes-seguranca-2026-06-28.md`
+
+---
+
+## Checkpoint com cliente (antes da Fase 4)
+
+**Objetivo:** Validar direção visual e coletar todos os assets antes de integrar conteúdo real.
+
+- [ ] Apresentar site com animações ao cliente
+- [ ] Coletar logo, fotos, textos, depoimentos
+- [ ] Confirmar canal de leads (Resend / Telegram / ambos)
+- [ ] Confirmar container ID do GTM
+- [ ] Confirmar domínio
+- [ ] Validar paleta de cores e tipografia
 
 ---
 
@@ -100,10 +142,12 @@ Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcial
 - [ ] URL real do domínio em todos os metadados e Schema.org
 - [ ] Endereço real para Google Maps embed e Schema.org
 - [ ] Google Maps embed (após confirmar endereço)
+- [ ] Integração de leads via Resend e/ou Telegram (após confirmar canal com cliente)
+- [ ] GTM container integrado via `NEXT_PUBLIC_GTM_ID`
 - [ ] Paleta de cores ajustada conforme identidade real (se fornecida)
 - [ ] Validação visual completa com o cliente
 
-**Status:** ⏳ Aguardando Fase 3 e assets do cliente
+**Status:** ⏳ Aguardando checkpoint com cliente
 
 ---
 
@@ -111,9 +155,14 @@ Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcial
 
 **Objetivo:** Zero regressões antes do deploy.
 
+**Segurança**
+- [ ] Upgrade Next.js para versão mais recente (vulnerabilidades identificadas em 14.2.35)
+- [ ] Re-executar `npm audit` após upgrade e confirmar zero high/critical
+
 **Smoke Test**
 - [ ] Todas as páginas carregam sem erro (7 rotas + 8 slugs de ambiente)
 - [ ] Sem crash de componente no console
+- [ ] Animações respeitam `prefers-reduced-motion`
 
 **Teste de Navegação**
 - [ ] Todos os links internos funcionando (sem 404)
@@ -133,6 +182,8 @@ Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcial
 - [ ] Envio com dados reais → recebimento confirmado no canal do cliente
 - [ ] Validação de campos obrigatórios (frontend)
 - [ ] Feedback visual: loading, sucesso, erro
+- [ ] Honeypot funcionando (bot não recebe confirmação)
+- [ ] Rate limiting (mais de 5 envios/min por IP retorna 429)
 
 **Teste do WhatsApp**
 - [ ] Botão flutuante → mensagem pré-preenchida correta
@@ -148,6 +199,7 @@ Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcial
 **Teste de SEO**
 - [ ] Open Graph validado (og:debugger)
 - [ ] Schema.org LocalBusiness válido (validator.schema.org)
+- [ ] BreadcrumbList em páginas internas validado
 - [ ] Sitemap.xml acessível
 - [ ] Canonical correto
 
@@ -167,12 +219,15 @@ Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcial
 - [x] Repositório GitHub criado: `magnus-midias/site-movelart`
 - [x] Push inicial realizado (branch `main`)
 - [ ] Criar projeto na Vercel e conectar ao GitHub
-- [ ] Configurar variáveis de ambiente na Vercel
+- [ ] Configurar variáveis de ambiente na Vercel (`NEXT_PUBLIC_WHATSAPP_NUMBER`, `RESEND_API_KEY`, `RESEND_TO_EMAIL` ou Telegram, `NEXT_PUBLIC_GTM_ID`)
 - [ ] Configurar DNS do domínio do cliente
 - [ ] Smoke test em produção
 - [ ] Submeter sitemap.xml ao Google Search Console
 - [ ] Solicitar indexação manual das páginas
+- [ ] **Configurar UptimeRobot** — criar conta Magnus Mídias, monitorar URL do site, alertas para Cristian via e-mail/Telegram (gratuito, verificação a cada 5 min)
 - [ ] Go live confirmado — avisar cliente
+
+**Nota de infraestrutura:** A conta UptimeRobot fica com a Magnus Mídias (não com o cliente). Todos os outros serviços (Resend, GTM, GA4, domínio) são de propriedade do cliente; Magnus Mídias como admin/colaborador.
 
 **Status:** ⏳ Aguardando Fase 5
 
@@ -186,4 +241,4 @@ Estado atual: Fases 1 e 2 concluídas. Fase 3 em andamento (SEO técnico parcial
 - Blog ou área editorial
 - Integração com CRM externo
 - Chat em tempo real
-- Google Analytics (pode entrar na manutenção mensal pós-go live)
+- Sentry (desnecessário para SSG com complexidade JS baixa — logs estruturados já implementados)
