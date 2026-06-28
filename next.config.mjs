@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
+  transpilePackages: ["framer-motion"],
   images: {
     formats: ["image/webp"],
   },

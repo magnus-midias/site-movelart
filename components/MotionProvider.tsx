@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 
 export default function MotionProvider({ children }: { children: ReactNode }) {
   return (
-    <MotionConfig reducedMotion="user">
+    <MotionConfig>
       {children}
     </MotionConfig>
   );
