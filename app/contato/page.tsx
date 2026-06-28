@@ -103,10 +103,10 @@ export default function ContatoPage() {
 
               {/* Formulário — primeiro no mobile e esquerda no desktop */}
               <AnimateIn delay={0.05} className="order-1">
+                <h2 className="font-display text-xl font-bold text-brand-dark mb-4">
+                  Solicitar orçamento
+                </h2>
                 <div className="bg-brand-bg border border-brand-border rounded-md p-6 md:p-8">
-                  <h2 className="font-display text-xl font-bold text-brand-dark mb-6">
-                    Solicitar orçamento
-                  </h2>
                   <ContactForm />
                 </div>
               </AnimateIn>

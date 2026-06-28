@@ -220,34 +220,30 @@ export default function HomePage() {
 
         {/* CTA Final */}
         <section className="py-12 md:py-20 bg-brand-dark">
-          <div className="container mx-auto text-center flex flex-col items-center gap-6">
-            <AnimateIn>
-              <h2 className="font-display text-3xl md:text-4xl font-bold max-w-2xl text-balance text-brand-bg">
-                Pronto para transformar a sua residência?
-              </h2>
-              <p className="text-brand-bg/70 max-w-lg mt-3">
-                Fale com nossa equipe e receba um projeto personalizado para o seu espaço.
-              </p>
-            </AnimateIn>
-            <AnimateIn delay={0.15}>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contato"
-                  className="inline-flex items-center justify-center bg-brand-accent hover:bg-brand-accent-hover text-white font-semibold px-8 py-4 rounded-md transition-colors min-h-[44px]"
-                >
-                  Solicitar orçamento
-                </Link>
-                <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5548963406360"}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center border-2 border-brand-bg text-brand-bg hover:bg-brand-bg hover:text-brand-dark font-semibold px-8 py-4 rounded-md transition-colors min-h-[44px]"
-                >
-                  WhatsApp
-                </a>
-              </div>
-            </AnimateIn>
-          </div>
+          <AnimateIn className="container mx-auto flex flex-col items-center gap-6 text-center">
+            <h2 className="font-display text-3xl md:text-4xl font-bold max-w-2xl text-balance text-brand-bg">
+              Pronto para transformar a sua residência?
+            </h2>
+            <p className="text-brand-bg/70 max-w-lg">
+              Fale com nossa equipe e receba um projeto personalizado para o seu espaço.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mt-2">
+              <Link
+                href="/contato"
+                className="inline-flex items-center justify-center bg-brand-accent hover:bg-brand-accent-hover text-white font-semibold px-8 py-4 rounded-md transition-colors min-h-[44px]"
+              >
+                Solicitar orçamento
+              </Link>
+              <a
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5548963406360"}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center border-2 border-brand-bg text-brand-bg hover:bg-brand-bg hover:text-brand-dark font-semibold px-8 py-4 rounded-md transition-colors min-h-[44px]"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </AnimateIn>
         </section>
       </main>
     </>
