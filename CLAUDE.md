@@ -30,7 +30,7 @@ Site institucional multi-página para empresa de móveis planejados localizada n
 | E-mail | Resend via Route Handler |
 | Notificação alternativa | Telegram Bot API (a definir com cliente) |
 | Hospedagem | Vercel (free tier) |
-| Repositório | GitHub |
+| Repositório | GitHub — `magnus-midias/site-movelart` |
 | Imagens | Vercel Image Optimization via `<Image>` do Next.js |
 
 ---
@@ -54,35 +54,47 @@ npm run lint
 
 ```
 docs/
-  arquitetura/       → arquitetura.md — stack, rotas, componentes, decisões técnicas
-  instrucoes/        → instrucoes.md + plano-de-acao-movelart.md
-  historico/         → registro sequencial de alterações (ler antes de modificar)
-  design-system/     → design-system.md + assets de marca
+  constitution.md          → princípios invioláveis — ler PRIMEIRO, sempre
+  prd-e-arquitetura/       → instrucoes.md, arquitetura.md, plano-de-acao.md, product-requirements-document.md
+  historico/               → registro sequencial de alterações (ler antes de modificar)
+  design-system/           → MASTER.md + assets de marca
+    MASTER.md              → fonte única de verdade sobre identidade visual
+    pages/                 → overrides por página (criar só se necessário)
     logos/
     icones/
     favicon/
-  prompt-inicial/    → referência do prompt padrão de projetos
-CLAUDE.md            → este arquivo
+  specs/                   → especificações de feature (001-nome-da-feature/)
+  prompt-inicial/          → referência do prompt padrão de projetos
+CLAUDE.md                  → este arquivo
 ```
+
+---
+
+## Ordem de leitura obrigatória antes de qualquer tarefa
+
+1. `docs/constitution.md` — princípios invioláveis (ler antes de tudo)
+2. `docs/prd-e-arquitetura/instrucoes.md` — regras de trabalho e histórico
+3. `docs/historico/` — em ordem numérica crescente
+4. `docs/prd-e-arquitetura/product-requirements-document.md` — visão do produto
+5. `docs/prd-e-arquitetura/arquitetura.md` — decisões técnicas
+6. `docs/design-system/MASTER.md` — apenas se a tarefa tiver impacto visual
 
 ---
 
 ## Regra de ouro — histórico obrigatório
 
 **Antes de qualquer alteração relevante:**
-1. Ler todo o histórico em `docs/historico/` (ordem numérica crescente).
-2. Ler `docs/arquitetura/arquitetura.md`.
-3. Se impacto visual: ler `docs/design-system/design-system.md`.
+1. Seguir a ordem de leitura acima.
 
 **Depois de qualquer alteração relevante:**
 1. Criar `docs/historico/NN-descricao-curta-AAAA-MM-DD.md` (próximo número disponível).
-2. Atualizar `docs/arquitetura/arquitetura.md` se a arquitetura mudou.
-3. Atualizar `docs/design-system/design-system.md` se tokens ou assets mudaram.
+2. Atualizar `docs/prd-e-arquitetura/arquitetura.md` se a arquitetura mudou.
+3. Atualizar `docs/design-system/MASTER.md` se tokens ou assets mudaram.
 
-Instruções completas em [`docs/instrucoes/instrucoes.md`](docs/instrucoes/instrucoes.md).
+Instruções completas em [`docs/prd-e-arquitetura/instrucoes.md`](docs/prd-e-arquitetura/instrucoes.md).
 
 ---
 
 ## Marca / Design system
 
-Paleta provisória de alto padrão em uso até recebimento dos assets reais do cliente. Ver `docs/design-system/design-system.md`.
+Paleta definitiva da marca (confirmada em 2026-06-12). Ver `docs/design-system/MASTER.md`.
