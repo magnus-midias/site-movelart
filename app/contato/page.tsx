@@ -101,8 +101,8 @@ export default function ContatoPage() {
           <div className="container mx-auto max-w-5xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-              {/* Formulário — primeiro no mobile (order-1), direita no desktop (lg:order-2) */}
-              <AnimateIn delay={0.05} className="order-1 lg:order-2">
+              {/* Formulário — primeiro no mobile e esquerda no desktop */}
+              <AnimateIn delay={0.05} className="order-1">
                 <div className="bg-brand-bg border border-brand-border rounded-md p-6 md:p-8">
                   <h2 className="font-display text-xl font-bold text-brand-dark mb-6">
                     Solicitar orçamento
@@ -111,8 +111,8 @@ export default function ContatoPage() {
                 </div>
               </AnimateIn>
 
-              {/* Informações — segundo no mobile (order-2), esquerda no desktop (lg:order-1) */}
-              <AnimateIn className="order-2 lg:order-1">
+              {/* Informações — segundo no mobile e direita no desktop */}
+              <AnimateIn className="order-2">
                 <div className="flex flex-col gap-8">
                   <div>
                     <h2 className="font-display text-xl font-bold text-brand-dark mb-4">
