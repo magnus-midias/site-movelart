@@ -111,54 +111,55 @@ export default function ContatoPage() {
                 </div>
               </AnimateIn>
 
-              {/* Informações — segundo no mobile e direita no desktop */}
+              {/* Canais de atendimento — segundo no mobile e direita no desktop */}
               <AnimateIn className="order-2">
-                <div className="flex flex-col gap-8">
-                  <div>
-                    <h2 className="font-display text-xl font-bold text-brand-dark mb-4">
-                      Canais de atendimento
-                    </h2>
-                    <div className="flex flex-col gap-3">
-                      {canaisContato.map((canal) => (
-                        <div
-                          key={canal.titulo}
-                          className="p-4 border border-brand-border rounded-md bg-brand-bg"
-                        >
-                          <h3 className="font-semibold text-brand-dark text-sm">{canal.titulo}</h3>
-                          <p className="text-brand-muted text-sm mt-0.5">{canal.descricao}</p>
-                          {canal.valor && (
-                            <p className="font-medium text-brand-dark mt-0.5 text-sm">{canal.valor}</p>
-                          )}
-                        </div>
-                      ))}
+                <h2 className="font-display text-xl font-bold text-brand-dark mb-4">
+                  Canais de atendimento
+                </h2>
+                <div className="flex flex-col gap-3">
+                  {canaisContato.map((canal) => (
+                    <div
+                      key={canal.titulo}
+                      className="p-4 border border-brand-border rounded-md bg-brand-bg"
+                    >
+                      <h3 className="font-semibold text-brand-dark text-sm">{canal.titulo}</h3>
+                      <p className="text-brand-muted text-sm mt-0.5">{canal.descricao}</p>
+                      {canal.valor && (
+                        <p className="font-medium text-brand-dark mt-0.5 text-sm">{canal.valor}</p>
+                      )}
                     </div>
-                  </div>
-
-                  <div>
-                    <h2 className="font-display text-lg font-bold text-brand-dark mb-3">
-                      Área de atuação
-                    </h2>
-                    <div className="aspect-video bg-brand-border rounded-md flex items-center justify-center">
-                      <div className="text-center text-brand-muted">
-                        <p className="font-medium text-sm">Google Maps embed</p>
-                        <p className="text-xs mt-1">Fase 4</p>
-                      </div>
-                    </div>
-                    <ul className="mt-3 flex flex-wrap gap-2">
-                      {["Florianópolis", "São José", "Palhoça", "Biguaçu", "Santo Amaro"].map((c) => (
-                        <li
-                          key={c}
-                          className="text-xs bg-brand-bg border border-brand-border rounded-full px-3 py-1 text-brand-muted"
-                        >
-                          {c}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  ))}
                 </div>
               </AnimateIn>
 
             </div>
+          </div>
+        </section>
+
+        {/* Área de atuação — seção separada, centralizada */}
+        <section className="py-12 md:py-16 bg-brand-bg border-t border-brand-border">
+          <div className="container mx-auto max-w-5xl">
+            <AnimateIn>
+              <h2 className="font-display text-xl font-bold text-brand-dark mb-6">
+                Área de atuação
+              </h2>
+              <div className="aspect-video md:aspect-[21/7] bg-brand-border rounded-md flex items-center justify-center">
+                <div className="text-center text-brand-muted">
+                  <p className="font-medium text-sm">Google Maps embed</p>
+                  <p className="text-xs mt-1">Fase 4</p>
+                </div>
+              </div>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {["Florianópolis", "São José", "Palhoça", "Biguaçu", "Santo Amaro"].map((c) => (
+                  <li
+                    key={c}
+                    className="text-xs bg-brand-surface border border-brand-border rounded-full px-3 py-1 text-brand-muted"
+                  >
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </AnimateIn>
           </div>
         </section>
       </main>
