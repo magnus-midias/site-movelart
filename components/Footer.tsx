@@ -21,7 +21,7 @@ const socialLinks = [
   },
   {
     label: "WhatsApp",
-    href: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5548963406360"}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de saber mais sobre móveis planejados.")}`,
+    href: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5548996340636"}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de saber mais sobre móveis sob medida.")}`,
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -47,7 +47,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1 flex flex-col gap-3">
             <Logo variant="dark" />
             <p className="text-sm text-brand-muted max-w-xs leading-relaxed">
-              Móveis planejados de alto padrão para a sua casa.
+              Móveis sob medida de alto padrão para a sua casa.
               Grande Florianópolis, SC.
             </p>
             <div className="flex items-center gap-1 mt-1">
@@ -91,23 +91,23 @@ export default function Footer() {
               Contato
             </h3>
             <ul className="flex flex-col gap-2.5 text-sm text-brand-muted">
-              <li>Grande Florianópolis, SC</li>
+              <li>São José, SC</li>
               <li>
                 <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5548963406360"}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de saber mais sobre móveis planejados.")}`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5548996340636"}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de saber mais sobre móveis sob medida.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-brand-dark transition-colors"
                 >
-                  (48) 9634-0636
+                  (48) 99634-0636
                 </a>
               </li>
               <li>
-                <a href="mailto:contato@empresa.com.br" className="hover:text-brand-dark transition-colors">
-                  contato@empresa.com.br
+                <a href="mailto:contato@moveismovelart.com.br" className="hover:text-brand-dark transition-colors">
+                  contato@moveismovelart.com.br
                 </a>
               </li>
-              <li className="leading-relaxed">Seg–Sex: 08h–18h<br />Sáb: 09h–13h</li>
+              <li className="leading-relaxed">Exclusivamente com horário agendado</li>
             </ul>
           </div>
 

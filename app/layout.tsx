@@ -30,35 +30,35 @@ const mulish = Mulish({
 
 export const metadata: Metadata = {
   title: {
-    default: "Movelart | Móveis Planejados em Florianópolis",
+    default: "Movelart | Móveis Sob Medida em Florianópolis",
     template: "%s | Movelart",
   },
   description:
-    "Móveis planejados de alto padrão para residências na Grande Florianópolis, SC. Projetos personalizados, instalação própria e garantia.",
-  metadataBase: new URL("https://movelart.com.br"),
+    "Móveis sob medida de alto padrão para residências e empresas na Grande Florianópolis, SC. Três gerações de marceneiros. Produção e instalação próprias. Garantia de 3 anos.",
+  metadataBase: new URL("https://moveismovelart.com.br"),
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    siteName: "Movelart",
-    title: "Movelart | Móveis Planejados em Florianópolis",
+    siteName: "Movelart — Móveis Sob Medida",
+    title: "Movelart | Móveis Sob Medida em Florianópolis",
     description:
-      "Móveis planejados de alto padrão para residências na Grande Florianópolis, SC. Projetos personalizados, instalação própria e garantia.",
-    url: "https://movelart.com.br",
+      "Móveis sob medida de alto padrão para residências e empresas na Grande Florianópolis, SC. Três gerações de marceneiros. Produção e instalação próprias.",
+    url: "https://moveismovelart.com.br",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Movelart — Móveis Planejados em Florianópolis",
+        alt: "Movelart — Móveis Sob Medida em Florianópolis",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Movelart | Móveis Planejados em Florianópolis",
+    title: "Movelart | Móveis Sob Medida em Florianópolis",
     description:
-      "Móveis planejados de alto padrão para residências na Grande Florianópolis, SC.",
+      "Móveis sob medida de alto padrão para residências e empresas na Grande Florianópolis, SC.",
     images: ["/og-image.jpg"],
   },
 };

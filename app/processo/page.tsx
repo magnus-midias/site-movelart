@@ -7,52 +7,70 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 export const metadata: Metadata = {
   title: "Como Trabalhamos",
   description:
-    "Conheça o processo da Movelart: da visita técnica ao projeto 3D e instalação final. Transparência e excelência em cada etapa.",
-  alternates: { canonical: "https://movelart.com.br/processo" },
+    "Conheça o processo da Movelart: do primeiro contato e pré-orçamento à instalação e pós-venda. Transparência e rigor técnico em cada etapa.",
+  alternates: { canonical: "https://moveismovelart.com.br/processo" },
   openGraph: {
     title: "Como Trabalhamos | Movelart",
     description:
-      "Da visita técnica à instalação final. Transparência, cuidado e excelência em cada etapa do projeto.",
-    url: "https://movelart.com.br/processo",
+      "Do primeiro contato à instalação final. Transparência, rigor técnico e comprometimento em cada etapa do projeto.",
+    url: "https://moveismovelart.com.br/processo",
   },
 };
 
 const etapas = [
   {
     numero: "01",
-    titulo: "Visita técnica",
+    titulo: "Primeiro contato e pré-orçamento",
     descricao:
-      "Nossa equipe visita o seu imóvel para entender o espaço, o estilo de vida e as necessidades. Sem custo, sem compromisso.",
+      "Entramos em contato para entender a demanda, o ambiente e o orçamento disponível. Apresentamos uma proposta inicial de forma clara e transparente.",
   },
   {
     numero: "02",
-    titulo: "Levantamento e briefing",
+    titulo: "Aprovação da proposta",
     descricao:
-      "Medimos cada canto com precisão e conversamos sobre suas preferências: cores, materiais, funcionalidades e estilo.",
+      "Com a proposta aprovada, alinhamos todos os detalhes e formalizamos o avanço do projeto. Sem letras miúdas, sem surpresas.",
   },
   {
     numero: "03",
-    titulo: "Projeto 3D",
+    titulo: "Levantamento técnico e briefing",
     descricao:
-      "Desenvolvemos a proposta em 3D para que você visualize cada detalhe antes de aprovar. Ajustes ilimitados até a satisfação total.",
+      "Nossa equipe visita o imóvel para medir o espaço com precisão e aprofundar o briefing: materiais, acabamentos, funcionalidades e estilo de vida.",
   },
   {
     numero: "04",
-    titulo: "Aprovação e contrato",
+    titulo: "Desenvolvimento do projeto",
     descricao:
-      "Com o projeto aprovado, formalizamos tudo: prazo de entrega, condições de pagamento e garantias. Sem letras miúdas.",
+      "Desenvolvemos o projeto completo em 3D para que você visualize cada detalhe antes da produção. Ajustes ilimitados até a aprovação total.",
   },
   {
     numero: "05",
     titulo: "Produção",
     descricao:
-      "Os móveis são produzidos com materiais de alta qualidade, com controle rigoroso de qualidade em cada peça.",
+      "Os móveis são fabricados na nossa própria estrutura, com controle rigoroso de qualidade em cada peça e respeito ao prazo acordado.",
   },
   {
     numero: "06",
-    titulo: "Instalação e entrega",
+    titulo: "Instalação e pós-venda",
     descricao:
-      "Nossa equipe técnica própria realiza toda a instalação com precisão e cuidado. Entregamos o ambiente pronto para uso.",
+      "Nossa equipe técnica própria realiza toda a instalação com precisão. Após a entrega, seguimos disponíveis para suporte dentro da garantia de 3 anos.",
+  },
+];
+
+const compromissos = [
+  {
+    titulo: "Qualidade em cada detalhe",
+    texto:
+      "Do projeto à instalação, cada etapa é executada com o mesmo rigor técnico e atenção ao acabamento que herdamos de três gerações de marceneiros.",
+  },
+  {
+    titulo: "Produção com rigor técnico",
+    texto:
+      "Fabricação própria com controle de qualidade em cada peça, garantindo precisão dimensional e durabilidade.",
+  },
+  {
+    titulo: "Compromisso com o prazo",
+    texto:
+      "Cumprimos os prazos acordados. Qualquer imprevisto é comunicado com antecedência e total transparência.",
   },
 ];
 
@@ -61,8 +79,8 @@ export default function ProcessoPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://movelart.com.br" },
-          { name: "Como Trabalhamos", url: "https://movelart.com.br/processo" },
+          { name: "Home", url: "https://moveismovelart.com.br" },
+          { name: "Como Trabalhamos", url: "https://moveismovelart.com.br/processo" },
         ]}
       />
       <main id="main-content">
@@ -116,7 +134,7 @@ export default function ProcessoPage() {
           </div>
         </section>
 
-        {/* Garantias */}
+        {/* Compromissos */}
         <section className="py-10 md:py-16 bg-brand-bg border-t border-brand-border">
           <div className="container mx-auto">
             <AnimateIn>
@@ -128,11 +146,7 @@ export default function ProcessoPage() {
                   Transparência em cada etapa.
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full text-left mt-2">
-                  {[
-                    { titulo: "Prazo garantido", texto: "Cumprimos os prazos acordados ou comunicamos com antecedência qualquer imprevisto." },
-                    { titulo: "Sem surpresas", texto: "O orçamento aprovado é o valor final. Sem adicionais ocultos durante o processo." },
-                    { titulo: "Garantia no pós-instalação", texto: "Após a entrega, nossa equipe segue disponível para ajustes e suporte." },
-                  ].map((item) => (
+                  {compromissos.map((item) => (
                     <div key={item.titulo} className="p-5 border border-brand-border rounded-md flex flex-col gap-2">
                       <h3 className="font-semibold text-brand-dark text-sm">{item.titulo}</h3>
                       <p className="text-xs text-brand-muted leading-relaxed">{item.texto}</p>
@@ -152,7 +166,8 @@ export default function ProcessoPage() {
                 Pronto para dar o primeiro passo?
               </h2>
               <p className="text-brand-bg/70 max-w-md">
-                Agende uma visita técnica sem compromisso. Nossa equipe visita o seu imóvel e apresenta uma proposta personalizada.
+                Entre em contato e agende uma visita técnica. Nossa equipe visita o seu imóvel
+                e apresenta uma proposta personalizada.
               </p>
               <Link
                 href="/contato"

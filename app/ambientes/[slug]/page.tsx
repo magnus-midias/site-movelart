@@ -6,10 +6,11 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import GaleriaAmbiente from "@/components/GaleriaAmbiente";
 
 const ambientes: Record<string, { nome: string; descricao: string }> = {
+  // Residencial
   cozinha: {
     nome: "Cozinha",
     descricao:
-      "Cozinhas planejadas que unem funcionalidade, beleza e organização. Cada projeto é desenvolvido para o seu espaço e rotina.",
+      "Cozinhas sob medida que unem funcionalidade, beleza e organização. Cada projeto é desenvolvido para o seu espaço e rotina.",
   },
   dormitorio: {
     nome: "Dormitório",
@@ -21,10 +22,15 @@ const ambientes: Record<string, { nome: string; descricao: string }> = {
     descricao:
       "Closets personalizados para organizar e expor seu guarda-roupa com elegância. Cada peça no lugar certo.",
   },
-  sala: {
-    nome: "Sala",
+  "sala-de-estar": {
+    nome: "Sala de Estar",
     descricao:
-      "Painéis, estantes e soluções sob medida que transformam a sala em um espaço único e acolhedor.",
+      "Painéis, estantes e soluções sob medida que transformam a sala de estar em um espaço único e acolhedor.",
+  },
+  "home-theater": {
+    nome: "Home Theater",
+    descricao:
+      "Painéis acústicos, rack embutido e móveis para home theater projetados para a melhor experiência audiovisual em casa.",
   },
   "sala-de-jantar": {
     nome: "Sala de Jantar",
@@ -41,10 +47,62 @@ const ambientes: Record<string, { nome: string; descricao: string }> = {
     descricao:
       "Gabinetes e móveis para banheiro com acabamentos resistentes à umidade e design sofisticado.",
   },
+  lavabo: {
+    nome: "Lavabo",
+    descricao:
+      "Cubas, espelhos e móveis para lavabo com acabamento refinado e design que impressiona à primeira visita.",
+  },
   "area-de-servico": {
     nome: "Área de Serviço",
     descricao:
-      "Armários e soluções planejadas para área de serviço que organizam e aproveitam ao máximo cada centímetro.",
+      "Armários e soluções sob medida para área de serviço que organizam e aproveitam ao máximo cada centímetro.",
+  },
+  "hall-de-entrada": {
+    nome: "Hall de Entrada",
+    descricao:
+      "Móveis sob medida para hall de entrada que combinam funcionalidade e beleza desde o primeiro contato com o ambiente.",
+  },
+  "espaco-gourmet": {
+    nome: "Espaço Gourmet",
+    descricao:
+      "Soluções planejadas para espaço gourmet que integram praticidade e sofisticação para receber com excelência.",
+  },
+  // Corporativo
+  escritorios: {
+    nome: "Escritórios",
+    descricao:
+      "Bancadas, armários e soluções sob medida para escritórios corporativos que unem produtividade e identidade visual.",
+  },
+  clinicas: {
+    nome: "Clínicas",
+    descricao:
+      "Móveis planejados para clínicas e consultórios com materiais adequados às normas sanitárias e design sofisticado.",
+  },
+  lojas: {
+    nome: "Lojas",
+    descricao:
+      "Displays, prateleiras e marcenaria sob medida para ambientes comerciais que valorizam o produto e a experiência do cliente.",
+  },
+  // Empreendimentos
+  condominios: {
+    nome: "Condomínios",
+    descricao:
+      "Soluções planejadas para áreas comuns, halls e unidades de condomínios com qualidade e escala.",
+  },
+  "apartamentos-decorados": {
+    nome: "Apartamentos Decorados",
+    descricao:
+      "Projetos completos de marcenaria para apartamentos decorados que valorizam o imóvel e encantam os compradores.",
+  },
+  "areas-comuns": {
+    nome: "Áreas Comuns",
+    descricao:
+      "Marcenaria sob medida para áreas comuns de condomínios: salão de festas, coworking, fitness e muito mais.",
+  },
+  halls: {
+    nome: "Halls",
+    descricao:
+      "Painéis, bancadas e mobiliário planejado para halls de entrada que constroem a primeira impressão do empreendimento.",
   },
 };
 
@@ -62,13 +120,13 @@ export async function generateMetadata({
   if (!ambiente) return {};
 
   return {
-    title: `${ambiente.nome} Planejado em Florianópolis`,
-    description: `${ambiente.descricao} Movelart — Móveis planejados de alto padrão na Grande Florianópolis, SC.`,
-    alternates: { canonical: `https://movelart.com.br/ambientes/${slug}` },
+    title: `${ambiente.nome} Sob Medida em Florianópolis`,
+    description: `${ambiente.descricao} Movelart — Móveis sob medida de alto padrão na Grande Florianópolis, SC.`,
+    alternates: { canonical: `https://moveismovelart.com.br/ambientes/${slug}` },
     openGraph: {
-      title: `${ambiente.nome} Planejado | Movelart`,
+      title: `${ambiente.nome} Sob Medida | Movelart`,
       description: ambiente.descricao,
-      url: `https://movelart.com.br/ambientes/${slug}`,
+      url: `https://moveismovelart.com.br/ambientes/${slug}`,
     },
   };
 }
@@ -86,9 +144,9 @@ export default async function AmbienteDetalhe({
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://movelart.com.br" },
-          { name: "Ambientes", url: "https://movelart.com.br/ambientes" },
-          { name: ambiente.nome, url: `https://movelart.com.br/ambientes/${slug}` },
+          { name: "Home", url: "https://moveismovelart.com.br" },
+          { name: "Ambientes", url: "https://moveismovelart.com.br/ambientes" },
+          { name: ambiente.nome, url: `https://moveismovelart.com.br/ambientes/${slug}` },
         ]}
       />
       <main id="main-content">

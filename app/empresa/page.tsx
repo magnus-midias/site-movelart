@@ -8,30 +8,69 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 export const metadata: Metadata = {
   title: "Nossa Empresa",
   description:
-    "Conheça a história, os valores e os diferenciais da Movelart. Especialistas em móveis planejados de alto padrão na Grande Florianópolis, SC.",
-  alternates: { canonical: "https://movelart.com.br/empresa" },
+    "Três gerações de marceneiros. Conheça a história da Movelart — Móveis Sob Medida, nossos valores e diferenciais. São José, Grande Florianópolis, SC.",
+  alternates: { canonical: "https://moveismovelart.com.br/empresa" },
   openGraph: {
     title: "Nossa Empresa | Movelart",
     description:
-      "Mais de 15 anos transformando residências na Grande Florianópolis. Conheça nossa história, diferenciais e área de atuação.",
-    url: "https://movelart.com.br/empresa",
+      "Três gerações de marceneiros. Tradição, conhecimento técnico e tecnologia a serviço do seu projeto.",
+    url: "https://moveismovelart.com.br/empresa",
   },
 };
 
 const numeros = [
-  { valor: "+15", label: "Anos de mercado" },
-  { valor: "+500", label: "Projetos entregues" },
+  { valor: "+15", label: "Anos de tradição familiar" },
+  { valor: "+1000", label: "Projetos executados" },
   { valor: "100%", label: "Instalação própria" },
-  { valor: "5★", label: "Avaliação média" },
+  { valor: "5★", label: "Avaliação no Google" },
 ];
 
 const diferenciais = [
-  { titulo: "Projeto 3D incluso", descricao: "Você visualiza cada detalhe do seu ambiente antes da produção começar. Ajustes ilimitados até a aprovação final." },
-  { titulo: "Instalação própria", descricao: "Nossa equipe técnica cuida de toda a instalação. Sem terceirizados: precisão e responsabilidade do início ao fim." },
-  { titulo: "Materiais de alto padrão", descricao: "Trabalhamos com os melhores fornecedores do mercado. Acabamentos que duram décadas e valorizam o imóvel." },
-  { titulo: "Atendimento consultivo", descricao: "Não vendemos móveis. Desenvolvemos projetos. Nosso time entende suas necessidades antes de propor qualquer solução." },
-  { titulo: "Garantia total", descricao: "Suporte completo no pós-instalação. Qualquer ajuste necessário, nossa equipe atende com agilidade." },
-  { titulo: "Projeto personalizado", descricao: "Cada detalhe é pensado para o seu espaço e o seu estilo de vida. Não existem dois projetos iguais." },
+  {
+    titulo: "Três gerações de marceneiros",
+    descricao:
+      "Nossa história começa com nosso avô, foi fortalecida por nosso pai e hoje segue com os irmãos Arthur, Caio e Ramon. Um conhecimento que só se constrói com décadas de prática.",
+  },
+  {
+    titulo: "Conhecimento técnico completo",
+    descricao:
+      "Por vivermos a marcenaria desde a infância, dominamos materiais, ferragens, processos produtivos e soluções construtivas em cada etapa do projeto.",
+  },
+  {
+    titulo: "Produção própria",
+    descricao:
+      "Fabricamos nossos móveis na nossa própria estrutura, com controle rigoroso de qualidade em cada peça produzida.",
+  },
+  {
+    titulo: "Instalação por equipe própria",
+    descricao:
+      "Sem terceirizados. Nossa equipe técnica cuida de toda a instalação, garantindo precisão e responsabilidade do início ao fim.",
+  },
+  {
+    titulo: "Projetos totalmente personalizados",
+    descricao:
+      "Cada projeto é desenvolvido exclusivamente para o cliente. Não existem dois projetos iguais na Movelart.",
+  },
+  {
+    titulo: "Materiais cuidadosamente selecionados",
+    descricao:
+      "Trabalhamos com fornecedores criteriosamente escolhidos. Acabamentos que duram décadas e valorizam o imóvel.",
+  },
+  {
+    titulo: "Alto padrão de acabamento",
+    descricao:
+      "A precisão técnica herdada da marcenaria artesanal se reflete em cada detalhe — das junções às ferragens, do corte ao acabamento final.",
+  },
+  {
+    titulo: "Atendimento consultivo e transparente",
+    descricao:
+      "Não vendemos móveis. Desenvolvemos projetos. Entendemos a sua necessidade antes de propor qualquer solução.",
+  },
+  {
+    titulo: "Pós-venda comprometido",
+    descricao:
+      "Nossa relação com o cliente não termina na entrega. Oferecemos 3 anos de garantia e suporte contínuo no pós-instalação.",
+  },
 ];
 
 export default function EmpresaPage() {
@@ -39,8 +78,8 @@ export default function EmpresaPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://movelart.com.br" },
-          { name: "Nossa Empresa", url: "https://movelart.com.br/empresa" },
+          { name: "Home", url: "https://moveismovelart.com.br" },
+          { name: "Nossa Empresa", url: "https://moveismovelart.com.br/empresa" },
         ]}
       />
       <main id="main-content">
@@ -54,13 +93,13 @@ export default function EmpresaPage() {
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.1}>
               <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-6 text-balance text-brand-dark">
-                Mais de uma década transformando residências na Grande Florianópolis.
+                Três gerações de marceneiros. Uma história construída projeto a projeto.
               </h1>
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.2}>
               <p className="text-brand-muted text-lg leading-relaxed max-w-2xl">
-                Nascemos da paixão por projetos que respeitam o espaço, a vida e o gosto de quem mora.
-                Cada ambiente que entregamos carrega o cuidado de quem trata o seu projeto como se fosse o próprio.
+                A Movelart combina tradição familiar, conhecimento técnico profundo e tecnologia
+                para desenvolver móveis sob medida que unem funcionalidade, sofisticação e durabilidade.
               </p>
             </AnimateIn>
           </div>
@@ -94,31 +133,40 @@ export default function EmpresaPage() {
                     Nossa história
                   </p>
                   <h2 className="font-display text-3xl font-bold text-brand-dark">
-                    De projeto em projeto, construímos nossa reputação.
+                    Uma tradição que atravessa gerações.
                   </h2>
                   <div className="flex flex-col gap-4 text-brand-muted leading-relaxed">
                     <p>
-                      Fundada há mais de 15 anos, a Movelart nasceu com um propósito claro: entregar
-                      móveis planejados que combinam funcionalidade, sofisticação e durabilidade para
-                      residências da Grande Florianópolis.
+                      A Movelart — Móveis Sob Medida é a continuidade de uma história construída
+                      ao longo de três gerações de marceneiros. Nossa trajetória começou com nosso avô,
+                      foi fortalecida por nosso pai e hoje segue com os irmãos Arthur, Caio e Ramon,
+                      que cresceram dentro da marcenaria. Desde muito cedo aprendemos, na prática,
+                      que qualidade, dedicação e respeito ao cliente são valores inseparáveis do nosso trabalho.
                     </p>
                     <p>
-                      Ao longo dos anos, construímos nossa reputação projeto a projeto, com clientes que
-                      nos indicam porque confiam no nosso trabalho. Do dormitório ao escritório, da cozinha
-                      ao closet. Cada ambiente recebe a mesma atenção ao detalhe.
+                      Arthur iniciou sua caminhada aos 15 anos, atuando em diferentes etapas da produção
+                      e adquirindo uma visão completa de todo o processo de fabricação. Alguns anos depois,
+                      Caio integrou a equipe e, posteriormente, Ramon também se juntou ao negócio,
+                      consolidando a continuidade da tradição familiar. Há 15 anos, após o falecimento
+                      de nosso pai, assumimos a responsabilidade de dar continuidade ao legado construído
+                      por nossa família.
                     </p>
                     <p>
-                      Hoje, somos referência em móveis planejados de alto padrão na região, com equipe
-                      técnica própria e estrutura completa para atender da concepção à instalação.
+                      Desde então, evoluímos constantemente — incorporando novas tecnologias, aperfeiçoando
+                      processos e investindo em inovação, sem abrir mão da essência da marcenaria artesanal
+                      e dos valores que sempre nortearam nossa empresa. Hoje, combinamos tradição,
+                      conhecimento técnico e tecnologia para entregar projetos que refletem a personalidade
+                      e as necessidades de cada cliente.
                     </p>
                   </div>
                 </div>
               </AnimateIn>
               <AnimateIn delay={0.1}>
+                {/* FASE 4: substituir por foto da equipe */}
                 <div className="aspect-[4/3] bg-brand-border rounded-md flex items-center justify-center">
                   <div className="text-center text-brand-muted">
-                    <p className="font-medium">Foto da equipe / showroom</p>
-                    <p className="text-sm mt-1">Substituir na Fase 4</p>
+                    <p className="font-medium">Foto da equipe / fábrica</p>
+                    <p className="text-sm mt-1">Fase 4</p>
                   </div>
                 </div>
               </AnimateIn>
@@ -159,10 +207,11 @@ export default function EmpresaPage() {
           <div className="container mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <AnimateIn delay={0.1}>
+                {/* FASE 4: substituir por Google Maps embed */}
                 <div className="aspect-[4/3] bg-brand-border rounded-md flex items-center justify-center order-2 lg:order-1">
                   <div className="text-center text-brand-muted">
-                    <p className="font-medium">Grande Florianópolis, SC</p>
-                    <p className="text-sm mt-1">Google Maps embed — Fase 4</p>
+                    <p className="font-medium">Google Maps embed</p>
+                    <p className="text-sm mt-1">Fase 4</p>
                   </div>
                 </div>
               </AnimateIn>
@@ -175,8 +224,8 @@ export default function EmpresaPage() {
                     Atendemos toda a Grande Florianópolis.
                   </h2>
                   <p className="text-brand-muted leading-relaxed">
-                    Florianópolis, São José, Palhoça, Biguaçu e municípios da região. Realizamos visita técnica
-                    diretamente no seu imóvel, sem custo adicional.
+                    Baseados em São José, SC, atendemos toda a Grande Florianópolis e região.
+                    Realizamos visita técnica diretamente no seu imóvel, com horário agendado.
                   </p>
                   <ul className="flex flex-col gap-2 text-brand-muted text-sm">
                     {["Florianópolis", "São José", "Palhoça", "Biguaçu", "Santo Amaro da Imperatriz"].map((cidade) => (

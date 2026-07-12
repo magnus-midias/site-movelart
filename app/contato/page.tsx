@@ -7,23 +7,24 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contato",
   description:
-    "Entre em contato com a Movelart. Solicite um orçamento para móveis planejados na Grande Florianópolis, SC. Respondemos em até 24 horas.",
-  alternates: { canonical: "https://movelart.com.br/contato" },
+    "Entre em contato com a Movelart. Solicite um orçamento para móveis sob medida na Grande Florianópolis, SC. Respondemos em até 24 horas.",
+  alternates: { canonical: "https://moveismovelart.com.br/contato" },
   openGraph: {
     title: "Contato | Movelart",
     description:
       "Solicite um orçamento ou agende uma visita técnica. Atendemos Florianópolis e região.",
-    url: "https://movelart.com.br/contato",
+    url: "https://moveismovelart.com.br/contato",
   },
 };
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Movelart",
-  description: "Móveis planejados de alto padrão para residências na Grande Florianópolis, SC.",
-  url: "https://movelart.com.br",
-  telephone: "+5548963406360",
+  name: "Movelart — Móveis Sob Medida",
+  description: "Móveis sob medida de alto padrão para residências e empresas na Grande Florianópolis, SC.",
+  url: "https://moveismovelart.com.br",
+  telephone: "+5548996340636",
+  email: "contato@moveismovelart.com.br",
   areaServed: [
     "Florianópolis",
     "São José",
@@ -33,30 +34,16 @@ const localBusinessSchema = {
   ],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Florianópolis",
+    addressLocality: "São José",
     addressRegion: "SC",
     addressCountry: "BR",
   },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday"],
-      opens: "08:00",
-      closes: "12:00",
-    },
-  ],
 };
 
 const canaisContato = [
-  { titulo: "WhatsApp", descricao: "Resposta rápida em horário comercial.", valor: "(48) 96340-6360" },
-  { titulo: "E-mail", descricao: "Respondemos em até 24 horas úteis.", valor: "contato@movelart.com.br" },
-  { titulo: "Atendimento", descricao: "Segunda a sexta: 8h–18h · Sábado: 8h–12h", valor: null },
+  { titulo: "WhatsApp", descricao: "Resposta rápida. Clique para iniciar uma conversa.", valor: "(48) 99634-0636" },
+  { titulo: "E-mail", descricao: "Respondemos em até 24 horas úteis.", valor: "contato@moveismovelart.com.br" },
+  { titulo: "Atendimento", descricao: "Exclusivamente com horário agendado.", valor: null },
 ];
 
 export default function ContatoPage() {
@@ -69,8 +56,8 @@ export default function ContatoPage() {
       />
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://movelart.com.br" },
-          { name: "Contato", url: "https://movelart.com.br/contato" },
+          { name: "Home", url: "https://moveismovelart.com.br" },
+          { name: "Contato", url: "https://moveismovelart.com.br/contato" },
         ]}
       />
       <main id="main-content">

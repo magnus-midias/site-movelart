@@ -7,34 +7,79 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 export const metadata: Metadata = {
   title: "Ambientes",
   description:
-    "Portfólio de projetos da Movelart por categoria de ambiente: cozinha, dormitório, closet, sala e muito mais. Móveis planejados na Grande Florianópolis, SC.",
-  alternates: { canonical: "https://movelart.com.br/ambientes" },
+    "Portfólio de projetos da Movelart por categoria: residencial, corporativo e empreendimentos. Móveis sob medida na Grande Florianópolis, SC.",
+  alternates: { canonical: "https://moveismovelart.com.br/ambientes" },
   openGraph: {
     title: "Ambientes | Movelart",
     description:
-      "Portfólio de projetos por categoria: cozinha, dormitório, closet, sala e muito mais. Móveis planejados de alto padrão na Grande Florianópolis.",
-    url: "https://movelart.com.br/ambientes",
+      "Portfólio de projetos sob medida por categoria: cozinha, dormitório, closet, escritório e muito mais. Grande Florianópolis, SC.",
+    url: "https://moveismovelart.com.br/ambientes",
   },
 };
 
-const ambientes = [
+const residencial = [
   { slug: "cozinha", nome: "Cozinha" },
   { slug: "dormitorio", nome: "Dormitório" },
   { slug: "closet", nome: "Closet" },
-  { slug: "sala", nome: "Sala" },
+  { slug: "sala-de-estar", nome: "Sala de Estar" },
+  { slug: "home-theater", nome: "Home Theater" },
   { slug: "sala-de-jantar", nome: "Sala de Jantar" },
   { slug: "home-office", nome: "Home Office" },
   { slug: "banheiro", nome: "Banheiro" },
+  { slug: "lavabo", nome: "Lavabo" },
   { slug: "area-de-servico", nome: "Área de Serviço" },
+  { slug: "hall-de-entrada", nome: "Hall de Entrada" },
+  { slug: "espaco-gourmet", nome: "Espaço Gourmet" },
 ];
+
+const corporativo = [
+  { slug: "escritorios", nome: "Escritórios" },
+  { slug: "clinicas", nome: "Clínicas" },
+  { slug: "lojas", nome: "Lojas" },
+];
+
+const empreendimentos = [
+  { slug: "condominios", nome: "Condomínios" },
+  { slug: "apartamentos-decorados", nome: "Apartamentos Decorados" },
+  { slug: "areas-comuns", nome: "Áreas Comuns" },
+  { slug: "halls", nome: "Halls" },
+];
+
+function GridAmbientes({ items }: { items: { slug: string; nome: string }[] }) {
+  return (
+    <StaggerList className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {items.map((ambiente) => (
+        <StaggerItem key={ambiente.slug}>
+          <Link
+            href={`/ambientes/${ambiente.slug}`}
+            className="group block bg-brand-bg rounded-md overflow-hidden border border-brand-border hover:border-brand-ebony transition-colors"
+          >
+            <div className="aspect-[4/3] bg-brand-border flex items-center justify-center overflow-hidden">
+              {/* FASE 4: substituir por <Image> */}
+              <span className="text-brand-muted text-sm group-hover:scale-105 transition-transform duration-300">
+                Foto placeholder
+              </span>
+            </div>
+            <div className="p-5 flex items-center justify-between">
+              <h2 className="font-display text-base font-semibold text-brand-dark group-hover:text-brand-accent transition-colors">
+                {ambiente.nome}
+              </h2>
+              <span className="text-brand-ebony group-hover:text-brand-accent transition-colors text-sm" aria-hidden="true">→</span>
+            </div>
+          </Link>
+        </StaggerItem>
+      ))}
+    </StaggerList>
+  );
+}
 
 export default function AmbientesPage() {
   return (
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://movelart.com.br" },
-          { name: "Ambientes", url: "https://movelart.com.br/ambientes" },
+          { name: "Home", url: "https://moveismovelart.com.br" },
+          { name: "Ambientes", url: "https://moveismovelart.com.br/ambientes" },
         ]}
       />
       <main id="main-content">
@@ -59,31 +104,48 @@ export default function AmbientesPage() {
           </div>
         </section>
 
-        {/* Grid de categorias */}
+        {/* Residencial */}
         <section className="py-12 md:py-20 bg-brand-surface">
           <div className="container mx-auto">
-            <StaggerList className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ambientes.map((ambiente) => (
-                <StaggerItem key={ambiente.slug}>
-                  <Link
-                    href={`/ambientes/${ambiente.slug}`}
-                    className="group block bg-brand-bg rounded-md overflow-hidden border border-brand-border hover:border-brand-ebony transition-colors"
-                  >
-                    <div className="aspect-[4/3] bg-brand-border flex items-center justify-center overflow-hidden">
-                      <span className="text-brand-muted text-sm group-hover:scale-105 transition-transform duration-300">
-                        Foto placeholder
-                      </span>
-                    </div>
-                    <div className="p-5 flex items-center justify-between">
-                      <h2 className="font-display text-base font-semibold text-brand-dark group-hover:text-brand-accent transition-colors">
-                        {ambiente.nome}
-                      </h2>
-                      <span className="text-brand-ebony group-hover:text-brand-accent transition-colors text-sm" aria-hidden="true">→</span>
-                    </div>
-                  </Link>
-                </StaggerItem>
-              ))}
-            </StaggerList>
+            <AnimateIn>
+              <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
+                Residencial
+              </p>
+              <h2 className="font-display text-2xl font-bold text-brand-dark mb-8">
+                Ambientes residenciais
+              </h2>
+            </AnimateIn>
+            <GridAmbientes items={residencial} />
+          </div>
+        </section>
+
+        {/* Corporativo */}
+        <section className="py-12 md:py-20 bg-brand-bg border-t border-brand-border">
+          <div className="container mx-auto">
+            <AnimateIn>
+              <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
+                Corporativo
+              </p>
+              <h2 className="font-display text-2xl font-bold text-brand-dark mb-8">
+                Ambientes corporativos
+              </h2>
+            </AnimateIn>
+            <GridAmbientes items={corporativo} />
+          </div>
+        </section>
+
+        {/* Empreendimentos */}
+        <section className="py-12 md:py-20 bg-brand-surface border-t border-brand-border">
+          <div className="container mx-auto">
+            <AnimateIn>
+              <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
+                Empreendimentos
+              </p>
+              <h2 className="font-display text-2xl font-bold text-brand-dark mb-8">
+                Projetos para empreendimentos
+              </h2>
+            </AnimateIn>
+            <GridAmbientes items={empreendimentos} />
           </div>
         </section>
 
@@ -95,7 +157,7 @@ export default function AmbientesPage() {
                 Não encontrou o ambiente que procura?
               </h2>
               <p className="text-brand-bg/70 max-w-md">
-                Fale conosco. Desenvolvemos projetos para qualquer ambiente da sua residência.
+                Desenvolvemos projetos para qualquer ambiente residencial ou corporativo.
               </p>
               <Link
                 href="/contato"
