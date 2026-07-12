@@ -9,13 +9,13 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          bg: "#F5F0EB",           // Parchment — fundo geral
-          surface: "#FBFBFB",      // White — cards, formulários
+          bg: "#FAFAF8",           // Off-white — fundo geral
+          surface: "#F2F2F0",      // Light gray — cards, formulários
           dark: "#0D1B2A",         // Ink Black — texto principal, fundos escuros
           ebony: "#5B5941",        // Ebony — acento secundário quente (ícones, eyebrows, outline)
           "ebony-hover": "#4A4835",
           muted: "#6B6854",        // muted derivado do Ebony — texto secundário
-          border: "#D6CCBF",       // borda derivada do Parchment
+          border: "#E2E0DC",       // borda neutra levemente quente
           accent: "#801611",       // Crushed Berry — CTAs, botões primários, rodapé
           "accent-hover": "#6B1210",
           error: "#C0392B",
