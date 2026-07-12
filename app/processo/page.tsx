@@ -138,21 +138,21 @@ export default function ProcessoPage() {
         <section className="py-10 md:py-16 bg-brand-bg border-t border-brand-border">
           <div className="container mx-auto">
             <AnimateIn>
-              <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-6">
-                <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest">
+              <div className="text-center mb-8">
+                <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
                   Nosso compromisso
                 </p>
                 <h2 className="font-display text-3xl font-bold text-brand-dark">
                   Transparência em cada etapa.
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full text-left mt-2">
-                  {compromissos.map((item) => (
-                    <div key={item.titulo} className="p-5 border border-brand-border rounded-md flex flex-col gap-2">
-                      <h3 className="font-semibold text-brand-dark text-sm">{item.titulo}</h3>
-                      <p className="text-xs text-brand-muted leading-relaxed">{item.texto}</p>
-                    </div>
-                  ))}
-                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {compromissos.map((item) => (
+                  <div key={item.titulo} className="p-6 border border-brand-border rounded-md flex flex-col gap-3 h-full">
+                    <h3 className="font-semibold text-brand-dark text-sm">{item.titulo}</h3>
+                    <p className="text-sm text-brand-muted leading-relaxed">{item.texto}</p>
+                  </div>
+                ))}
               </div>
             </AnimateIn>
           </div>

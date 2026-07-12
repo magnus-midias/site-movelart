@@ -148,8 +148,8 @@ export default function EmpresaPage() {
                       e adquirindo uma visão completa de todo o processo de fabricação. Alguns anos depois,
                       Caio integrou a equipe e, posteriormente, Ramon também se juntou ao negócio,
                       consolidando a continuidade da tradição familiar. Há 15 anos, após o falecimento
-                      de nosso pai, assumimos a responsabilidade de dar continuidade ao legado construído
-                      por nossa família.
+                      do pai, Arthur, Caio e Ramon assumiram a responsabilidade de dar continuidade ao
+                      legado construído pela família.
                     </p>
                     <p>
                       Desde então, evoluímos constantemente, incorporando novas tecnologias, aperfeiçoando
@@ -183,7 +183,7 @@ export default function EmpresaPage() {
               </p>
               <h2 className="font-display text-3xl font-bold text-brand-dark mb-3">O que nos diferencia</h2>
               <p className="text-brand-muted mb-8 md:mb-12 max-w-xl">
-                Entregamos projetos que transformam o modo como você vive.
+                O resultado que você vê e sente no dia a dia.
               </p>
             </AnimateIn>
             <StaggerList className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -204,40 +204,28 @@ export default function EmpresaPage() {
 
         {/* Localização */}
         <section className="py-10 md:py-16 bg-brand-surface border-t border-brand-border">
-          <div className="container mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <AnimateIn delay={0.1}>
-                {/* FASE 4: substituir por Google Maps embed */}
-                <div className="aspect-[4/3] bg-brand-border rounded-md flex items-center justify-center order-2 lg:order-1">
-                  <div className="text-center text-brand-muted">
-                    <p className="font-medium">Google Maps embed</p>
-                    <p className="text-sm mt-1">Fase 4</p>
-                  </div>
-                </div>
-              </AnimateIn>
-              <AnimateIn>
-                <div className="flex flex-col gap-6 order-1 lg:order-2">
-                  <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest">
-                    Onde atuamos
-                  </p>
-                  <h2 className="font-display text-3xl font-bold text-brand-dark">
-                    Atendemos toda a Grande Florianópolis.
-                  </h2>
-                  <p className="text-brand-muted leading-relaxed">
-                    Baseados em São José, SC, atendemos toda a Grande Florianópolis e região.
-                    Realizamos visita técnica diretamente no seu imóvel, com horário agendado.
-                  </p>
-                  <ul className="flex flex-col gap-2 text-brand-muted text-sm">
-                    {["Florianópolis", "São José", "Palhoça", "Biguaçu", "Santo Amaro da Imperatriz"].map((cidade) => (
-                      <li key={cidade} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-ebony shrink-0" aria-hidden="true" />
-                        {cidade}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </AnimateIn>
-            </div>
+          <div className="container mx-auto max-w-4xl">
+            <AnimateIn>
+              <div className="flex flex-col gap-6">
+                <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest">
+                  Onde atuamos
+                </p>
+                <h2 className="font-display text-2xl font-bold text-brand-dark">
+                  Atendemos toda a Grande Florianópolis.
+                </h2>
+                <p className="text-brand-muted leading-relaxed max-w-xl">
+                  Baseados em São José, SC, realizamos visita técnica diretamente no seu imóvel, com horário agendado.
+                </p>
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                  {["Florianópolis", "São José", "Palhoça", "Biguaçu", "Santo Amaro da Imperatriz"].map((cidade) => (
+                    <li key={cidade} className="flex items-center gap-2 text-brand-muted text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-ebony shrink-0" aria-hidden="true" />
+                      {cidade}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimateIn>
           </div>
         </section>
 

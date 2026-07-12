@@ -5,7 +5,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/empresa", label: "Empresa" },
   { href: "/ambientes", label: "Ambientes" },
-  { href: "/processo", label: "Nosso Processo" },
+  { href: "/processo", label: "Como Trabalhamos" },
   { href: "/contato", label: "Contato" },
 ];
 
@@ -103,7 +103,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:contato@moveismovelart.com.br" className="hover:text-brand-dark transition-colors">
+                <a href="mailto:contato@moveismovelart.com.br" className="hover:text-brand-dark transition-colors break-all">
                   contato@moveismovelart.com.br
                 </a>
               </li>

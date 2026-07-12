@@ -41,9 +41,27 @@ const localBusinessSchema = {
 };
 
 const canaisContato = [
-  { titulo: "WhatsApp", descricao: "Resposta rápida. Clique para iniciar uma conversa.", valor: "(48) 99634-0636" },
-  { titulo: "E-mail", descricao: "Respondemos em até 24 horas úteis.", valor: "contato@moveismovelart.com.br" },
-  { titulo: "Atendimento", descricao: "Exclusivamente com horário agendado.", valor: null },
+  {
+    titulo: "WhatsApp",
+    descricao: "Resposta rápida. Clique para iniciar uma conversa.",
+    valor: "(48) 99634-0636",
+    link: "https://wa.me/5548996340636",
+    external: true,
+  },
+  {
+    titulo: "E-mail",
+    descricao: "Respondemos em até 24 horas úteis.",
+    valor: "contato@moveismovelart.com.br",
+    link: "mailto:contato@moveismovelart.com.br",
+    external: false,
+  },
+  {
+    titulo: "Atendimento",
+    descricao: "Exclusivamente com horário agendado.",
+    valor: null,
+    link: null,
+    external: false,
+  },
 ];
 
 export default function ContatoPage() {
@@ -111,8 +129,18 @@ export default function ContatoPage() {
                     >
                       <h3 className="font-semibold text-brand-dark text-sm">{canal.titulo}</h3>
                       <p className="text-brand-muted text-sm mt-0.5">{canal.descricao}</p>
-                      {canal.valor && (
-                        <p className="font-medium text-brand-dark mt-0.5 text-sm">{canal.valor}</p>
+                      {canal.valor && canal.link && (
+                        <a
+                          href={canal.link}
+                          target={canal.external ? "_blank" : undefined}
+                          rel={canal.external ? "noopener noreferrer" : undefined}
+                          className="font-medium text-brand-accent hover:underline mt-1 text-sm block break-all"
+                        >
+                          {canal.valor}
+                        </a>
+                      )}
+                      {canal.valor && !canal.link && (
+                        <p className="font-medium text-brand-dark mt-1 text-sm">{canal.valor}</p>
                       )}
                     </div>
                   ))}
@@ -123,24 +151,16 @@ export default function ContatoPage() {
           </div>
         </section>
 
-        {/* Área de atuação — seção separada, centralizada */}
-        <section className="py-12 md:py-16 bg-brand-bg border-t border-brand-border">
+        {/* Área de atuação */}
+        <section className="py-8 md:py-12 bg-brand-bg border-t border-brand-border">
           <div className="container mx-auto max-w-5xl">
             <AnimateIn>
-              <h2 className="font-display text-xl font-bold text-brand-dark mb-6">
-                Área de atuação
-              </h2>
-              <div className="aspect-video md:aspect-[21/7] bg-brand-border rounded-md flex items-center justify-center">
-                <div className="text-center text-brand-muted">
-                  <p className="font-medium text-sm">Google Maps embed</p>
-                  <p className="text-xs mt-1">Fase 4</p>
-                </div>
-              </div>
-              <ul className="mt-4 flex flex-wrap gap-2">
+              <p className="text-sm text-brand-muted mb-3 font-medium">Atendemos:</p>
+              <ul className="flex flex-wrap gap-2">
                 {["Florianópolis", "São José", "Palhoça", "Biguaçu", "Santo Amaro"].map((c) => (
                   <li
                     key={c}
-                    className="text-xs bg-brand-surface border border-brand-border rounded-full px-3 py-1 text-brand-muted"
+                    className="text-xs bg-brand-surface border border-brand-border rounded-full px-3 py-1.5 text-brand-muted"
                   >
                     {c}
                   </li>

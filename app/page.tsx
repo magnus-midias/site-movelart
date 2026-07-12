@@ -61,12 +61,6 @@ const diferenciais = [
   },
 ];
 
-const depoimentos = [
-  { nome: "Cliente 1", texto: "Depoimento real do cliente. A ser integrado na Fase 4." },
-  { nome: "Cliente 2", texto: "Depoimento real do cliente. A ser integrado na Fase 4." },
-  { nome: "Cliente 3", texto: "Depoimento real do cliente. A ser integrado na Fase 4." },
-];
-
 export default function HomePage() {
   return (
     <>
@@ -77,7 +71,7 @@ export default function HomePage() {
       />
       <main id="main-content">
         {/* Hero */}
-        <section className="pt-16 md:pt-20 min-h-[85vh] flex items-center bg-brand-bg border-b border-brand-border">
+        <section className="pt-16 md:pt-20 min-h-[60vh] md:min-h-[85vh] flex items-center bg-brand-bg border-b border-brand-border">
           <div className="container mx-auto py-12 md:py-20 flex flex-col gap-6 max-w-3xl">
             <AnimateIn trigger="mount" delay={0} distance={16}>
               <p className="font-yantra text-brand-accent text-sm font-semibold uppercase tracking-widest">
@@ -97,7 +91,7 @@ export default function HomePage() {
               </p>
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <div className="flex flex-col sm:flex-row gap-4 mt-2">
                 <Link
                   href="/contato"
                   className="inline-flex items-center justify-center bg-brand-accent hover:bg-brand-accent-hover text-white font-semibold px-8 py-4 rounded-md transition-colors min-h-[44px] text-center"
@@ -119,10 +113,7 @@ export default function HomePage() {
         <section className="py-12 md:py-20 bg-brand-surface">
           <div className="container mx-auto">
             <AnimateIn>
-              <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
-                Portfólio
-              </p>
-              <h2 className="font-display text-3xl font-bold text-brand-dark mb-3">Ambientes</h2>
+              <h2 className="font-display text-3xl font-bold text-brand-dark mb-3">Ambientes em destaque</h2>
               <p className="text-brand-muted mb-8 md:mb-10 max-w-xl">
                 Do dormitório à cozinha, transformamos cada espaço com precisão e sofisticação.
               </p>
@@ -167,12 +158,9 @@ export default function HomePage() {
         <section className="py-12 md:py-20 bg-brand-bg">
           <div className="container mx-auto">
             <AnimateIn>
-              <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
-                Por que nos escolher
-              </p>
-              <h2 className="font-display text-3xl font-bold text-brand-dark mb-3">Nossos diferenciais</h2>
+              <h2 className="font-display text-3xl font-bold text-brand-dark mb-3">Por que a Movelart</h2>
               <p className="text-brand-muted mb-8 md:mb-10 max-w-xl">
-                Três gerações de marceneiros a serviço da sua casa.
+                Três gerações de marceneiros a serviço do seu projeto.
               </p>
             </AnimateIn>
             <StaggerList className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -191,61 +179,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Depoimentos */}
-        <section className="py-12 md:py-20 bg-brand-surface">
-          <div className="container mx-auto">
-            <AnimateIn>
-              <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
-                Depoimentos
-              </p>
-              <h2 className="font-display text-3xl font-bold text-brand-dark mb-3">O que nossos clientes dizem</h2>
-              <p className="text-brand-muted mb-8 md:mb-10">Depoimentos reais de quem viveu a experiência.</p>
-            </AnimateIn>
-            <StaggerList className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {depoimentos.map((d, i) => (
-                <StaggerItem key={i}>
-                  <div className="flex flex-col gap-4 p-6 bg-brand-bg border border-brand-border rounded-md h-full">
-                    <div className="flex gap-0.5 text-brand-ebony">
-                      {"★★★★★".split("").map((s, idx) => <span key={idx}>{s}</span>)}
-                    </div>
-                    {/* FASE 4: substituir por depoimentos reais */}
-                    <p className="text-brand-muted text-sm leading-relaxed italic">
-                      &ldquo;{d.texto}&rdquo;
-                    </p>
-                    <p className="text-brand-dark font-semibold text-sm">{d.nome}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerList>
-          </div>
-        </section>
-
-        {/* Localização */}
-        <section className="py-10 md:py-16 bg-brand-bg border-t border-brand-border">
-          <div className="container mx-auto">
-            <AnimateIn>
-              <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
-                Onde estamos
-              </p>
-              <h2 className="font-display text-2xl font-bold text-brand-dark mb-6">Grande Florianópolis, SC</h2>
-              {/* FASE 4: substituir por Google Maps embed */}
-              <div className="w-full h-64 md:h-72 bg-brand-border rounded-md flex items-center justify-center">
-                <div className="text-center text-brand-muted">
-                  <p className="font-medium">Google Maps embed</p>
-                  <p className="text-sm mt-1">Fase 4</p>
-                </div>
-              </div>
-            </AnimateIn>
-          </div>
-        </section>
-
         {/* CTA Final */}
         <section className="py-12 md:py-20 bg-brand-dark">
           <AnimateIn className="container mx-auto flex flex-col items-center gap-6 text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold max-w-2xl text-balance text-brand-bg">
               Pronto para transformar a sua residência?
             </h2>
-            <p className="text-brand-bg/70 max-w-2xl">
+            <p className="text-brand-bg/70 max-w-lg">
               Fale com nossa equipe e receba um projeto personalizado para o seu espaço.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
