@@ -27,49 +27,49 @@ const numeros = [
 
 const diferenciais = [
   {
-    titulo: "Três gerações de marceneiros",
+    titulo: "Experiência que não se improvisa",
     descricao:
-      "Nossa história começa com nosso avô, foi fortalecida por nosso pai e hoje segue com os irmãos Arthur, Caio e Ramon. Um conhecimento que só se constrói com décadas de prática.",
+      "Três gerações de marceneiros. Esse histórico significa que cada decisão do seu projeto tem embasamento técnico real, construído ao longo de décadas.",
   },
   {
-    titulo: "Conhecimento técnico completo",
+    titulo: "Cada detalhe tem uma razão de ser",
     descricao:
-      "Por vivermos a marcenaria desde a infância, dominamos materiais, ferragens, processos produtivos e soluções construtivas em cada etapa do projeto.",
+      "Por crescerem dentro da marcenaria, dominam materiais, ferragens e processos construtivos que a maioria terceiriza. Você nota a diferença no resultado.",
   },
   {
-    titulo: "Produção própria",
+    titulo: "Controle total sobre o que você vai receber",
     descricao:
-      "Fabricamos nossos móveis na nossa própria estrutura, com controle rigoroso de qualidade em cada peça produzida.",
+      "Fabricação própria com controle de qualidade em cada peça. O que foi aprovado no projeto é o que chega na sua casa.",
   },
   {
-    titulo: "Instalação por equipe própria",
+    titulo: "Instalamos. Qualquer ajuste? A gente resolve.",
     descricao:
-      "Sem terceirizados. Nossa equipe técnica cuida de toda a instalação, garantindo precisão e responsabilidade do início ao fim.",
+      "Sem terceirizados na instalação. Você tem um único responsável do início ao fim, e qualquer ajuste pós-entrega é tratado diretamente com quem fez.",
   },
   {
-    titulo: "Projetos totalmente personalizados",
+    titulo: "Um projeto que não existe em lugar nenhum",
     descricao:
-      "Cada projeto é desenvolvido exclusivamente para o cliente. Não existem dois projetos iguais na Movelart.",
+      "Cada projeto é desenvolvido exclusivamente para o seu espaço. Nenhum outro cliente tem o mesmo que você.",
   },
   {
-    titulo: "Materiais cuidadosamente selecionados",
+    titulo: "Materiais que duram tanto quanto a sua casa",
     descricao:
-      "Trabalhamos com fornecedores criteriosamente escolhidos. Acabamentos que duram décadas e valorizam o imóvel.",
+      "Fornecedores criteriosamente selecionados. Acabamentos que não desbotam, não incham e não dececionam depois de alguns anos.",
   },
   {
-    titulo: "Alto padrão de acabamento",
+    titulo: "O detalhe que você vai notar todo dia",
     descricao:
-      "A precisão técnica herdada da marcenaria artesanal se reflete em cada detalhe: das junções às ferragens, do corte ao acabamento final.",
+      "Das junções às ferragens, do corte ao acabamento: a precisão de quem faz marcenaria por vocação aparece nos detalhes que a maioria não percebe até ver de perto.",
   },
   {
-    titulo: "Atendimento consultivo e transparente",
+    titulo: "Você entende cada decisão do projeto",
     descricao:
-      "Não vendemos móveis. Desenvolvemos projetos. Entendemos a sua necessidade antes de propor qualquer solução.",
+      "Antes de propor qualquer solução, entendemos a sua rotina e o que você realmente precisa. Você aprova cada etapa com informação, não no escuro.",
   },
   {
-    titulo: "Pós-venda comprometido",
+    titulo: "Nossa relação não termina na entrega",
     descricao:
-      "Nossa relação com o cliente não termina na entrega. Oferecemos 3 anos de garantia e suporte contínuo no pós-instalação.",
+      "3 anos de garantia com equipe própria disponível. Se algo precisar de atenção depois da instalação, você não fica sozinho.",
   },
 ];
 
@@ -93,13 +93,13 @@ export default function EmpresaPage() {
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.1}>
               <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-6 text-balance text-brand-dark">
-                Três gerações de marceneiros. Uma história construída projeto a projeto.
+                Três gerações de marceneiros. A experiência que você contrata está em cada detalhe do projeto.
               </h1>
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.2}>
               <p className="text-brand-muted text-lg leading-relaxed max-w-2xl">
-                A Movelart combina tradição familiar, conhecimento técnico profundo e tecnologia
-                para desenvolver móveis sob medida que unem funcionalidade, sofisticação e durabilidade.
+                Você não está contratando um fornecedor. Está contratando uma família que
+                cresceu fazendo isso, com 15 anos de projetos entregues na Grande Florianópolis.
               </p>
             </AnimateIn>
           </div>
@@ -133,15 +133,15 @@ export default function EmpresaPage() {
                     Nossa história
                   </p>
                   <h2 className="font-display text-3xl font-bold text-brand-dark">
-                    Uma tradição que atravessa gerações.
+                    Uma história que se reflete em cada projeto.
                   </h2>
                   <div className="flex flex-col gap-4 text-brand-muted leading-relaxed">
                     <p>
-                      A Movelart é a continuidade de uma história construída
-                      ao longo de três gerações de marceneiros. Nossa trajetória começou com nosso avô,
-                      foi fortalecida por nosso pai e hoje segue com os irmãos Arthur, Caio e Ramon,
-                      que cresceram dentro da marcenaria. Desde muito cedo aprendemos, na prática,
-                      que qualidade, dedicação e respeito ao cliente são valores inseparáveis do nosso trabalho.
+                      Por trás de cada projeto da Movelart existe uma história construída
+                      ao longo de três gerações de marceneiros. A trajetória começou com o avô,
+                      foi fortalecida pelo pai e hoje segue com os irmãos Arthur, Caio e Ramon,
+                      que cresceram dentro da marcenaria. Desde muito cedo aprenderam, na prática,
+                      que qualidade, dedicação e respeito ao cliente são valores inseparáveis do trabalho.
                     </p>
                     <p>
                       Arthur iniciou sua caminhada aos 15 anos, atuando em diferentes etapas da produção

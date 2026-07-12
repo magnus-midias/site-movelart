@@ -58,19 +58,19 @@ const etapas = [
 
 const compromissos = [
   {
-    titulo: "Qualidade em cada detalhe",
+    titulo: "O que você aprovou é o que você recebe",
     texto:
-      "Do projeto à instalação, cada etapa é executada com o mesmo rigor técnico e atenção ao acabamento que herdamos de três gerações de marceneiros.",
+      "Do 3D ao produto instalado, cada detalhe é executado exatamente como foi aprovado com você. Sem adaptações de última hora, sem surpresas na entrega.",
   },
   {
-    titulo: "Produção com rigor técnico",
+    titulo: "Fabricação própria, resultado previsível",
     texto:
-      "Fabricação própria com controle de qualidade em cada peça, garantindo precisão dimensional e durabilidade.",
+      "Você não depende de terceiros. A qualidade não varia de peça para peça, e qualquer ajuste é resolvido direto com quem fabricou.",
   },
   {
-    titulo: "Compromisso com o prazo",
+    titulo: "Prazo combinado, prazo cumprido",
     texto:
-      "Cumprimos os prazos acordados. Qualquer imprevisto é comunicado com antecedência e total transparência.",
+      "Cumprimos os prazos acordados. Se surgir algum imprevisto, você é avisado com antecedência, não na véspera.",
   },
 ];
 
@@ -99,8 +99,8 @@ export default function ProcessoPage() {
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.2}>
               <p className="text-brand-muted text-lg mt-6 max-w-xl leading-relaxed">
-                Cada projeto segue um processo claro, transparente e pensado para garantir
-                que o resultado final supere as suas expectativas.
+                Você sabe o que esperar em cada etapa. Sem surpresas, sem obras intermináveis,
+                sem descobrir problemas depois que já era tarde.
               </p>
             </AnimateIn>
           </div>

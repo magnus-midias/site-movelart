@@ -40,24 +40,24 @@ const ambientesDestaque = [
 
 const diferenciais = [
   {
-    titulo: "Três gerações de marceneiros",
+    titulo: "Experiência que não se improvisa",
     descricao:
-      "Nossa tradição familiar garante um conhecimento técnico profundo em materiais, ferragens e processos produtivos que só se adquire com décadas de prática.",
+      "Crescemos dentro da marcenaria. Esse histórico garante que cada decisão de projeto tenha embasamento técnico real, não improviso.",
   },
   {
-    titulo: "Produção e instalação próprias",
+    titulo: "Do projeto à instalação: tudo com a gente",
     descricao:
-      "Da fábrica à sua casa, sem terceiros. Controle total sobre qualidade, prazo e resultado final em cada etapa do projeto.",
+      "Sem terceirizados. Você tem um único interlocutor do começo ao fim, com controle total sobre prazo e qualidade.",
   },
   {
-    titulo: "Projeto personalizado com 3D",
+    titulo: "Veja como vai ficar antes de começar",
     descricao:
-      "Visualize cada detalhe do seu ambiente antes da produção começar. Ajustes ilimitados até a aprovação final.",
+      "Desenvolvemos o projeto em 3D para que você aprove cada detalhe antes da produção. Ajustes ilimitados até a aprovação final.",
   },
   {
-    titulo: "3 anos de garantia",
+    titulo: "Garantia real no pós-entrega",
     descricao:
-      "Garantia de 3 anos nos móveis, com equipe própria disponível no pós-instalação para suporte e ajustes.",
+      "Nossa equipe segue disponível depois da instalação. Qualquer ajuste dentro dos 3 anos de garantia: a gente resolve.",
   },
 ];
 
@@ -91,9 +91,8 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.2}>
               <p className="text-brand-muted text-lg max-w-xl leading-relaxed">
-                Mais do que fabricar móveis, desenvolvemos soluções sob medida com rigor
-                técnico, materiais cuidadosamente selecionados e acabamento refinado.
-                Cada projeto é pensado para unir funcionalidade, sofisticação e durabilidade.
+                Cada ambiente pensado do zero para o seu espaço e o seu estilo.
+                Do projeto em 3D à instalação final, sem terceiros e sem surpresas.
               </p>
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.3}>
