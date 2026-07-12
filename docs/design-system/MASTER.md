@@ -52,12 +52,12 @@ Tokens definidos em `tailwind.config.ts` em `theme.extend.colors.brand`. Paleta 
 
 | Nome | HEX | Token | Uso |
 |---|---|---|---|
-| Off-white | `#FAFAF8` | `brand-bg` | Fundo geral da página |
-| Light gray | `#F2F2F0` | `brand-surface` | Cards, formulários, superfícies elevadas |
+| White | `#FFFFFF` | `brand-bg` | Fundo geral da página |
+| Light gray | `#F5F5F5` | `brand-surface` | Cards, formulários, superfícies elevadas |
 | Ink Black | `#0D1B2A` | `brand-dark` | Texto principal, fundos escuros (dark CTAs) |
 | Ebony | `#5B5941` | `brand-ebony` | Acento secundário — bordas hover, botão outline, eyebrows |
 | Muted Warm | `#6B6854` | `brand-muted` | Texto secundário, ícones, labels |
-| Border Neutral | `#E2E0DC` | `brand-border` | Bordas de cards, inputs, divisores |
+| Border Neutral | `#E5E5E4` | `brand-border` | Bordas de cards, inputs, divisores |
 | Crushed Berry | `#801611` | `brand-accent` | CTAs, botões primários, ícone do logo, eyebrow accent |
 | Crushed Berry Dark | `#6B1210` | `brand-accent-hover` | Estado hover dos elementos de acento |
 | Error | `#C0392B` | `brand-error` | Mensagens de erro no formulário |
