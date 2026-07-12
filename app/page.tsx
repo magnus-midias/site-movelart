@@ -40,9 +40,9 @@ const ambientesDestaque = [
 
 const diferenciais = [
   {
-    titulo: "Experiência que não se improvisa",
+    titulo: "Executamos projetos de arquitetos",
     descricao:
-      "Crescemos dentro da marcenaria. Esse histórico garante que cada decisão de projeto tenha embasamento técnico real, não improviso.",
+      "Lemos a especificação técnica, tiramos dúvidas antes de produzir e entregamos exatamente o que foi projetado. Sem simplificações.",
   },
   {
     titulo: "Do projeto à instalação: tudo com a gente",
@@ -50,9 +50,9 @@ const diferenciais = [
       "Sem terceirizados. Você tem um único interlocutor do começo ao fim, com controle total sobre prazo e qualidade.",
   },
   {
-    titulo: "Veja como vai ficar antes de começar",
+    titulo: "3D de execução antes de produzir qualquer peça",
     descricao:
-      "Desenvolvemos o projeto em 3D para que você aprove cada detalhe antes da produção. Ajustes ilimitados até a aprovação final.",
+      "Seja partindo do projeto do arquiteto ou desenvolvendo do zero, modelamos tudo em 3D antes da produção. Você aprova antes de começar.",
   },
   {
     titulo: "Garantia real no pós-entrega",
@@ -91,8 +91,9 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.2}>
               <p className="text-brand-muted text-lg max-w-xl leading-relaxed">
-                Cada ambiente pensado do zero para o seu espaço e o seu estilo.
-                Do projeto em 3D à instalação final, sem terceiros e sem surpresas.
+                Executamos projetos de arquitetura com fidelidade técnica e desenvolvemos
+                projetos do zero com o mesmo rigor. Da especificação à instalação,
+                tudo com equipe própria, sem terceiros.
               </p>
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.3}>
@@ -187,6 +188,37 @@ export default function HomePage() {
                 </StaggerItem>
               ))}
             </StaggerList>
+          </div>
+        </section>
+
+        {/* Arquitetos e designers */}
+        <section className="py-10 md:py-14 bg-brand-surface border-t border-brand-border">
+          <div className="container mx-auto">
+            <AnimateIn>
+              <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 max-w-4xl">
+                <div className="flex-1">
+                  <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
+                    Arquitetos e designers de interiores
+                  </p>
+                  <h2 className="font-display text-2xl font-bold text-brand-dark mb-3">
+                    Executamos o seu projeto com fidelidade técnica.
+                  </h2>
+                  <p className="text-brand-muted leading-relaxed max-w-xl">
+                    Trabalhamos com projetos assinados. Lemos a especificação, alinhamos cada
+                    detalhe antes da produção e entregamos exatamente o que foi projetado.
+                    Sem adaptações não autorizadas, sem surpresas para o seu cliente.
+                  </p>
+                </div>
+                <div className="shrink-0">
+                  <Link
+                    href="/contato"
+                    className="inline-flex items-center justify-center bg-brand-ebony hover:bg-[#4A4835] text-white font-semibold px-8 py-4 rounded-md transition-colors min-h-[44px]"
+                  >
+                    Enviar projeto para orçamento
+                  </Link>
+                </div>
+              </div>
+            </AnimateIn>
           </div>
         </section>
 

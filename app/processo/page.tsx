@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 const etapas = [
   {
     numero: "01",
-    titulo: "Primeiro contato e pré-orçamento",
+    titulo: "Primeiro contato e análise do projeto",
     descricao:
-      "Entramos em contato para entender a demanda, o ambiente e o orçamento disponível. Apresentamos uma proposta inicial de forma clara e transparente.",
+      "Nos conte sobre o seu espaço e o estágio do projeto. Se já tiver projeto de arquiteto ou designer, analisamos a documentação e apresentamos uma proposta técnica detalhada.",
   },
   {
     numero: "02",
@@ -32,9 +32,9 @@ const etapas = [
   },
   {
     numero: "03",
-    titulo: "Levantamento técnico e briefing",
+    titulo: "Levantamento técnico",
     descricao:
-      "Nossa equipe visita o imóvel para medir o espaço com precisão e aprofundar o briefing: materiais, acabamentos, funcionalidades e estilo de vida.",
+      "Nossa equipe visita o imóvel para medir o espaço com precisão. Para projetos com arquiteto, analisamos a documentação técnica e alinhamos cada especificação antes de produzir.",
   },
   {
     numero: "04",
@@ -99,8 +99,8 @@ export default function ProcessoPage() {
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.2}>
               <p className="text-brand-muted text-lg mt-6 max-w-xl leading-relaxed">
-                Você sabe o que esperar em cada etapa. Sem surpresas, sem obras intermináveis,
-                sem descobrir problemas depois que já era tarde.
+                Chegue com projeto de arquiteto ou do zero: o processo se adapta, mas
+                a transparência, o prazo e a fidelidade ao que foi combinado nunca mudam.
               </p>
             </AnimateIn>
           </div>
