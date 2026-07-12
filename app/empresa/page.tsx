@@ -37,12 +37,12 @@ const diferenciais = [
       "Por crescerem dentro da marcenaria, dominam materiais, ferragens e processos construtivos que a maioria terceiriza. Você nota a diferença no resultado.",
   },
   {
-    titulo: "Controle total sobre o que você vai receber",
+    titulo: "Controle total sobre o que você recebe",
     descricao:
       "Fabricação própria com controle de qualidade em cada peça. O que foi aprovado no projeto é o que chega na sua casa.",
   },
   {
-    titulo: "Instalamos. Qualquer ajuste? A gente resolve.",
+    titulo: "Instalamos. Ajuste pós-entrega? A gente resolve.",
     descricao:
       "Sem terceirizados na instalação. Você tem um único responsável do início ao fim, e qualquer ajuste pós-entrega é tratado diretamente com quem fez.",
   },

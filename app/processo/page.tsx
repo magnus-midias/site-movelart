@@ -145,7 +145,7 @@ export default function ProcessoPage() {
                 <h2 className="font-display text-3xl font-bold text-brand-dark">
                   Transparência em cada etapa.
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full text-left mt-2">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full text-left mt-2">
                   {compromissos.map((item) => (
                     <div key={item.titulo} className="p-5 border border-brand-border rounded-md flex flex-col gap-2">
                       <h3 className="font-semibold text-brand-dark text-sm">{item.titulo}</h3>

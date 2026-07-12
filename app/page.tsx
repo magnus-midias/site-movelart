@@ -50,9 +50,9 @@ const diferenciais = [
       "Sem terceirizados. Você tem um único interlocutor do começo ao fim, com controle total sobre prazo e qualidade.",
   },
   {
-    titulo: "3D de execução antes de produzir qualquer peça",
+    titulo: "Aprovação em 3D antes de produzir",
     descricao:
-      "Seja partindo do projeto do arquiteto ou desenvolvendo do zero, modelamos tudo em 3D antes da produção. Você aprova antes de começar.",
+      "Seja partindo do projeto do arquiteto ou desenvolvendo do zero, modelamos tudo em 3D antes da produção. Você aprova cada detalhe antes de começar.",
   },
   {
     titulo: "Garantia real no pós-entrega",
