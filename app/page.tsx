@@ -191,37 +191,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Arquitetos e designers */}
-        <section className="py-10 md:py-14 bg-brand-surface border-t border-brand-border">
-          <div className="container mx-auto">
-            <AnimateIn>
-              <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 max-w-4xl">
-                <div className="flex-1">
-                  <p className="font-yantra text-brand-ebony text-sm font-semibold uppercase tracking-widest mb-3">
-                    Arquitetos e designers de interiores
-                  </p>
-                  <h2 className="font-display text-2xl font-bold text-brand-dark mb-3">
-                    Executamos o seu projeto com fidelidade técnica.
-                  </h2>
-                  <p className="text-brand-muted leading-relaxed max-w-xl">
-                    Trabalhamos com projetos assinados. Lemos a especificação, alinhamos cada
-                    detalhe antes da produção e entregamos exatamente o que foi projetado.
-                    Sem adaptações não autorizadas, sem surpresas para o seu cliente.
-                  </p>
-                </div>
-                <div className="shrink-0">
-                  <Link
-                    href="/contato"
-                    className="inline-flex items-center justify-center bg-brand-ebony hover:bg-[#4A4835] text-white font-semibold px-8 py-4 rounded-md transition-colors min-h-[44px]"
-                  >
-                    Enviar projeto para orçamento
-                  </Link>
-                </div>
-              </div>
-            </AnimateIn>
-          </div>
-        </section>
-
         {/* Depoimentos */}
         <section className="py-12 md:py-20 bg-brand-surface">
           <div className="container mx-auto">
