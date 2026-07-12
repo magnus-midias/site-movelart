@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Movelart — Móveis Sob Medida",
+  name: "Movelart Móveis Sob Medida",
   description: "Móveis sob medida de alto padrão para residências e empresas na Grande Florianópolis, SC.",
   url: "https://moveismovelart.com.br",
   telephone: "+5548996340636",

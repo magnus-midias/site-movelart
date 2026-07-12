@@ -8,7 +8,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 export const metadata: Metadata = {
   title: "Nossa Empresa",
   description:
-    "Três gerações de marceneiros. Conheça a história da Movelart — Móveis Sob Medida, nossos valores e diferenciais. São José, Grande Florianópolis, SC.",
+    "Três gerações de marceneiros. Conheça a história da Movelart, nossos valores e diferenciais. São José, Grande Florianópolis, SC.",
   alternates: { canonical: "https://moveismovelart.com.br/empresa" },
   openGraph: {
     title: "Nossa Empresa | Movelart",
@@ -59,7 +59,7 @@ const diferenciais = [
   {
     titulo: "Alto padrão de acabamento",
     descricao:
-      "A precisão técnica herdada da marcenaria artesanal se reflete em cada detalhe — das junções às ferragens, do corte ao acabamento final.",
+      "A precisão técnica herdada da marcenaria artesanal se reflete em cada detalhe: das junções às ferragens, do corte ao acabamento final.",
   },
   {
     titulo: "Atendimento consultivo e transparente",
@@ -137,7 +137,7 @@ export default function EmpresaPage() {
                   </h2>
                   <div className="flex flex-col gap-4 text-brand-muted leading-relaxed">
                     <p>
-                      A Movelart — Móveis Sob Medida é a continuidade de uma história construída
+                      A Movelart é a continuidade de uma história construída
                       ao longo de três gerações de marceneiros. Nossa trajetória começou com nosso avô,
                       foi fortalecida por nosso pai e hoje segue com os irmãos Arthur, Caio e Ramon,
                       que cresceram dentro da marcenaria. Desde muito cedo aprendemos, na prática,
@@ -152,7 +152,7 @@ export default function EmpresaPage() {
                       por nossa família.
                     </p>
                     <p>
-                      Desde então, evoluímos constantemente — incorporando novas tecnologias, aperfeiçoando
+                      Desde então, evoluímos constantemente, incorporando novas tecnologias, aperfeiçoando
                       processos e investindo em inovação, sem abrir mão da essência da marcenaria artesanal
                       e dos valores que sempre nortearam nossa empresa. Hoje, combinamos tradição,
                       conhecimento técnico e tecnologia para entregar projetos que refletem a personalidade

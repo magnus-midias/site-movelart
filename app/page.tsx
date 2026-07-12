@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Movelart — Móveis Sob Medida",
+  name: "Movelart Móveis Sob Medida",
   url: "https://moveismovelart.com.br",
   logo: "https://moveismovelart.com.br/images/icone-vermelho.svg",
   telephone: "+5548996340636",

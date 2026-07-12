@@ -121,7 +121,7 @@ export async function generateMetadata({
 
   return {
     title: `${ambiente.nome} Sob Medida em Florianópolis`,
-    description: `${ambiente.descricao} Movelart — Móveis sob medida de alto padrão na Grande Florianópolis, SC.`,
+    description: `${ambiente.descricao} Movelart, móveis sob medida de alto padrão na Grande Florianópolis, SC.`,
     alternates: { canonical: `https://moveismovelart.com.br/ambientes/${slug}` },
     openGraph: {
       title: `${ambiente.nome} Sob Medida | Movelart`,

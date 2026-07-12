@@ -44,7 +44,7 @@ export default function GaleriaAmbiente({ nome, count = 6 }: GaleriaAmbienteProp
             key={i}
             onClick={() => openLightbox(i)}
             className="aspect-[4/3] bg-brand-border rounded-md flex items-center justify-center hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent w-full"
-            aria-label={`Abrir foto ${i + 1} de ${count} — ${nome}`}
+            aria-label={`Abrir foto ${i + 1} de ${count} de ${nome}`}
           >
             <div className="text-center text-brand-muted pointer-events-none">
               <p className="font-medium text-sm">Foto {i + 1}</p>
@@ -58,7 +58,7 @@ export default function GaleriaAmbiente({ nome, count = 6 }: GaleriaAmbienteProp
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`Galeria de ${nome} — foto ${currentIndex + 1} de ${count}`}
+          aria-label={`Galeria de ${nome}, foto ${currentIndex + 1} de ${count}`}
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-brand-dark/95 p-4"
           onClick={closeLightbox}
         >
@@ -69,7 +69,7 @@ export default function GaleriaAmbiente({ nome, count = 6 }: GaleriaAmbienteProp
             {/* Cabeçalho: título + fechar */}
             <div className="flex items-center justify-between">
               <p className="text-white/60 text-sm">
-                {nome} — {currentIndex + 1} / {count}
+                {nome} {currentIndex + 1} / {count}
               </p>
               <button
                 onClick={closeLightbox}

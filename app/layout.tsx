@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    siteName: "Movelart — Móveis Sob Medida",
+    siteName: "Movelart Móveis Sob Medida",
     title: "Movelart | Móveis Sob Medida em Florianópolis",
     description:
       "Móveis sob medida de alto padrão para residências e empresas na Grande Florianópolis, SC. Três gerações de marceneiros. Produção e instalação próprias.",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Movelart — Móveis Sob Medida em Florianópolis",
+        alt: "Movelart Móveis Sob Medida em Florianópolis",
       },
     ],
   },
