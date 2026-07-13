@@ -118,7 +118,7 @@ export default function HomePage() {
                 Do dormitório à cozinha, transformamos cada espaço com precisão e sofisticação.
               </p>
             </AnimateIn>
-            <StaggerList className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <StaggerList className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {ambientesDestaque.map((ambiente) => (
                 <StaggerItem key={ambiente.slug}>
                   <Link
@@ -131,8 +131,8 @@ export default function HomePage() {
                         Foto placeholder
                       </span>
                     </div>
-                    <div className="p-4 flex items-center justify-between">
-                      <h3 className="text-base font-semibold text-brand-dark group-hover:text-brand-accent transition-colors">
+                    <div className="p-3 sm:p-4 flex items-center justify-between gap-2">
+                      <h3 className="text-sm sm:text-base font-semibold text-brand-dark group-hover:text-brand-accent transition-colors leading-tight">
                         {ambiente.nome}
                       </h3>
                       <span className="text-brand-ebony group-hover:text-brand-accent transition-colors text-sm" aria-hidden="true">→</span>
