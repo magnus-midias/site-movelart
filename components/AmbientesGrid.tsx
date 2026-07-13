@@ -35,7 +35,7 @@ export default function AmbientesGrid({ ambientes }: Props) {
       <div
         role="tablist"
         aria-label="Filtrar por segmento"
-        className="flex gap-2 overflow-x-auto pb-2 mb-6 -mx-4 px-4 sm:mx-0 sm:px-0"
+        className="flex flex-wrap gap-2 mb-6"
       >
         {FILTROS.map((f) => (
           <button
