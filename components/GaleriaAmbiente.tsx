@@ -38,7 +38,28 @@ export default function GaleriaAmbiente({ nome, count = 6 }: GaleriaAmbienteProp
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Mobile: scroll horizontal com swipe */}
+      <div className="sm:hidden overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-3">
+        <div className="flex gap-3">
+          {Array.from({ length: count }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => openLightbox(i)}
+              style={{ width: "72vw", flexShrink: 0 }}
+              className="aspect-[4/3] snap-start bg-brand-border rounded-md flex items-center justify-center hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+              aria-label={`Abrir foto ${i + 1} de ${count} de ${nome}`}
+            >
+              <div className="text-center text-brand-muted pointer-events-none">
+                <p className="font-medium text-sm">Foto {i + 1}</p>
+                <p className="text-xs mt-1 opacity-70">{nome}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Tablet+: grid */}
+      <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {Array.from({ length: count }).map((_, i) => (
           <button
             key={i}
