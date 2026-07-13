@@ -15,6 +15,12 @@ interface Props {
   ambientes: AmbienteItem[];
 }
 
+const SEGMENTO_LABEL: Record<string, string> = {
+  residencial: "Residencial",
+  corporativo: "Corporativo",
+  empreendimentos: "Empreendimentos",
+};
+
 const FILTROS: { key: Segmento; label: string }[] = [
   { key: "todos", label: "Todos" },
   { key: "residencial", label: "Residencial" },
@@ -69,9 +75,14 @@ export default function AmbientesGrid({ ambientes }: Props) {
               </span>
             </div>
             <div className="p-3 sm:p-4 flex items-center justify-between gap-2">
-              <span className="font-semibold text-sm text-brand-dark group-hover:text-brand-accent transition-colors leading-tight">
-                {ambiente.nome}
-              </span>
+              <div className="flex flex-col gap-0.5 min-w-0">
+                <span className="text-[10px] font-semibold uppercase tracking-widest text-brand-muted">
+                  {SEGMENTO_LABEL[ambiente.segmento]}
+                </span>
+                <span className="font-semibold text-sm text-brand-dark group-hover:text-brand-accent transition-colors leading-tight">
+                  {ambiente.nome}
+                </span>
+              </div>
               <span className="text-brand-ebony group-hover:text-brand-accent transition-colors text-sm shrink-0" aria-hidden="true">
                 →
               </span>
