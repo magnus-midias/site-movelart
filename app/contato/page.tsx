@@ -94,8 +94,8 @@ export default function ContatoPage() {
             </AnimateIn>
             <AnimateIn trigger="mount" delay={0.2}>
               <p className="text-brand-muted text-lg mt-5 max-w-xl leading-relaxed">
-                Preencha o formulário ou entre em contato pelo canal de sua preferência.
-                Nossa equipe responde em até 24 horas úteis.
+                Preencha o formulário e você será direcionado ao WhatsApp com a mensagem
+                já formatada. A equipe também recebe um resumo por e-mail.
               </p>
             </AnimateIn>
           </div>
@@ -109,7 +109,7 @@ export default function ContatoPage() {
               {/* Formulário — primeiro no mobile e esquerda no desktop */}
               <AnimateIn delay={0.05} className="order-1">
                 <h2 className="font-display text-xl font-bold text-brand-dark mb-4">
-                  Solicitar orçamento
+                  Inicie uma conversa
                 </h2>
                 <div className="bg-brand-bg border border-brand-border rounded-md p-6 md:p-8">
                   <ContactForm />
