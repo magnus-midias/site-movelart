@@ -1,42 +1,187 @@
 {
-  "name": "Movelart — Lead via Site",
+  "name": "movelart-formulario-site",
   "nodes": [
+    {
+      "parameters": {
+        "content": "## 📩 movelart-formulario-site\n\n**O que faz:** recebe o formulário do site da Movelart (webhook), valida o secret de segurança e envia um e-mail estruturado pro Arthur com os dados do lead + botão \"Responder no WhatsApp\" (abre a conversa com o lead já preenchida).\n\n**Entrada (POST):** `{ nome, whatsapp, whatsappNormalizado, whatsappLinkLead, email, mensagem, temProjeto, timestamp }`.\n\n⚠️ **ANTES DE ATIVAR — uma coisa obrigatória:**\n1. **E-mail do Arthur:** no nó \"Enviar ao Arthur\", trocar o campo `To` pelo Gmail real do Arthur (atualmente está com o e-mail de teste do Cristian: `c.dornelles97@gmail.com`).\n\nO secret de validação já está embutido diretamente no nó IF (repositório privado). O mesmo valor está em `N8N_WEBHOOK_SECRET` na Vercel e no `.env.local`.\n\n**Credencial:** Gmail account [MAGNUS].",
+        "height": 320,
+        "width": 1180,
+        "color": 4
+      },
+      "id": "a0000-0000-4000-8000-000000000000",
+      "name": "nota-principal",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [220, -300]
+    },
     {
       "parameters": {
         "httpMethod": "POST",
         "path": "movelart-formulario",
-        "responseMode": "onReceived",
-        "responseData": "",
+        "responseMode": "responseNode",
         "options": {}
       },
-      "id": "webhook-trigger",
+      "id": "b0000-0000-4000-8000-000000000001",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [240, 300],
+      "position": [280, 360],
       "webhookId": "movelart-formulario"
     },
     {
       "parameters": {
-        "sendTo": "EMAIL_DO_ARTHUR@gmail.com",
-        "subject": "=🔔 Novo lead pelo site — {{ $json.body.nome }}",
-        "emailType": "html",
-        "message": "=<!DOCTYPE html><html lang=\"pt-BR\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{margin:0;padding:0;background:#f5f5f5;font-family:Arial,sans-serif;color:#0D1B2A}.wrap{max-width:600px;margin:32px auto;background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #E5E5E4}.header{background:#0D1B2A;padding:24px 32px}.header h1{margin:0;color:#ffffff;font-size:20px;font-weight:bold}.header p{margin:4px 0 0;color:#ffffff99;font-size:13px}.body{padding:32px}.label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#6B6854;margin:0 0 4px}.value{font-size:15px;color:#0D1B2A;margin:0 0 20px}.badge{display:inline-block;padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600}.badge-sim{background:#f0fdf4;color:#166534;border:1px solid #bbf7d0}.badge-nao{background:#fefce8;color:#854d0e;border:1px solid #fef08a}.mensagem-box{background:#F5F5F5;border-left:3px solid #801611;padding:16px;border-radius:4px;margin:0 0 28px;font-size:14px;line-height:1.6;color:#0D1B2A}.cta{display:block;text-align:center;background:#25D366;color:#ffffff;text-decoration:none;padding:16px 24px;border-radius:8px;font-weight:bold;font-size:16px;margin:8px 0}.footer{background:#F5F5F5;padding:20px 32px;font-size:12px;color:#6B6854;border-top:1px solid #E5E5E4}</style></head><body><div class=\"wrap\"><div class=\"header\"><h1>Novo lead pelo site</h1><p>moveismovelart.com.br · {{ $json.body.timestamp }}</p></div><div class=\"body\"><p class=\"label\">Nome</p><p class=\"value\">{{ $json.body.nome }}</p><p class=\"label\">WhatsApp</p><p class=\"value\">{{ $json.body.whatsapp }}</p><p class=\"label\">E-mail</p><p class=\"value\">{{ $json.body.email || 'Não informado' }}</p><p class=\"label\">Situação do projeto</p><p class=\"value\">{{ $json.body.temProjeto ? '<span class=\"badge badge-sim\">✓ Já tem projeto de arquiteto</span>' : '<span class=\"badge badge-nao\">Ainda não tem projeto</span>' }}</p><p class=\"label\">Mensagem do lead</p><div class=\"mensagem-box\">{{ $json.body.mensagem }}</div><a href=\"{{ $json.body.whatsappLinkLead }}\" class=\"cta\">💬 Responder agora no WhatsApp</a></div><div class=\"footer\">Lead recebido pelo formulário · {{ $json.body.whatsappLinkLead }}</div></div></body></html>",
+        "content": "### 1 — Webhook\nPOST `/movelart-formulario`\nrecebe o payload do formulário.",
+        "height": 200,
+        "width": 220,
+        "color": 7
+      },
+      "id": "a0000-0000-4000-8000-000000000001",
+      "name": "nota-webhook",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [275, 70]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.headers['x-webhook-secret'] }}",
+              "value2": "",
+              "operation": "notEqual"
+            },
+            {
+              "value1": "={{ $json.headers['x-webhook-secret'] }}",
+              "value2": "276f87c9a07b9e9ada4a04b966519ba2d59a577225d42035bdb767239eceed07"
+            }
+          ]
+        },
+        "combineOperation": "all"
+      },
+      "id": "c0000-0000-4000-8000-000000000001",
+      "name": "Validar Secret",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [520, 360]
+    },
+    {
+      "parameters": {
+        "content": "### 2 — Validar Secret\n**IF** — compara o header\n`x-webhook-secret` com a\nenv var `MOVELART_WEBHOOK_SECRET`.\n✅ true → processa\n❌ false → rejeita 401",
+        "height": 220,
+        "width": 220,
+        "color": 7
+      },
+      "id": "a0000-0000-4000-8000-000000000002",
+      "name": "nota-if",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [515, 70]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Unauthorized",
         "options": {
-          "appendAttribution": false
+          "responseCode": 401
         }
       },
-      "id": "gmail-send",
-      "name": "Enviar E-mail",
+      "id": "c0000-0000-4000-8000-000000000002",
+      "name": "Rejeitar (401)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [520, 560]
+    },
+    {
+      "parameters": {
+        "content": "### Secret inválido\n**Respond 401**\nRejeita e para.\nNão processa nem envia e-mail.",
+        "height": 160,
+        "width": 220,
+        "color": 3
+      },
+      "id": "a0000-0000-4000-8000-000000000005",
+      "name": "nota-rejeitar",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [515, 440]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "// monta o e-mail pro Arthur a partir do payload do formulario\nconst b = $input.first().json.body || $input.first().json;\nconst nome = (b.nome || '(sem nome)').toString().trim();\nconst whats = (b.whatsapp || b.whatsappNormalizado || '(não informado)').toString();\nconst norm = (b.whatsappNormalizado || '').toString().replace(/\\D/g, '');\nconst email = (b.email || '(não informado)').toString();\nconst msg = (b.mensagem || '(sem mensagem)').toString().trim();\nconst temProjeto = b.temProjeto ? 'Sim' : 'Não';\nlet quando = '';\ntry { quando = b.timestamp ? new Date(b.timestamp).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : ''; } catch (e) {}\n\n// link wa.me para o Arthur abrir conversa com o lead (mensagem já preenchida)\nconst textoWpp = `Olá ${nome}, tudo bem? Vi que você enviou seu contato no formulário do nosso site. Estou entrando em contato para entender como posso te ajudar: qual é a sua ideia, se você já tem um projeto ou não. Fico à disposição!`;\nconst linkWpp = norm ? `https://wa.me/${norm}?text=${encodeURIComponent(textoWpp)}` : (b.whatsappLinkLead || '');\n\nconst subject = `Novo lead do site Movelart: ${nome}`;\nconst html = `<!DOCTYPE html><html lang=\"pt-BR\"><head><meta charset=\"UTF-8\"></head><body>\n<div style=\"font-family:Arial,sans-serif;max-width:560px;color:#0D1B2A\">\n  <div style=\"background:#0D1B2A;padding:20px 28px;border-radius:8px 8px 0 0\">\n    <h2 style=\"margin:0;color:#ffffff;font-size:18px\">Novo lead pelo site da Movelart</h2>\n    <p style=\"margin:4px 0 0;color:#ffffff99;font-size:12px\">moveismovelart.com.br &middot; ${quando}</p>\n  </div>\n  <div style=\"border:1px solid #E5E5E4;border-top:none;padding:24px 28px;border-radius:0 0 8px 8px\">\n    <table style=\"border-collapse:collapse;width:100%\">\n      <tr><td style=\"padding:6px 0;width:130px;color:#6B6854;font-size:12px;text-transform:uppercase;letter-spacing:1px\">Nome</td><td style=\"padding:6px 0;font-size:15px\">${nome}</td></tr>\n      <tr><td style=\"padding:6px 0;color:#6B6854;font-size:12px;text-transform:uppercase;letter-spacing:1px\">WhatsApp</td><td style=\"padding:6px 0;font-size:15px\">${whats}</td></tr>\n      <tr><td style=\"padding:6px 0;color:#6B6854;font-size:12px;text-transform:uppercase;letter-spacing:1px\">E-mail</td><td style=\"padding:6px 0;font-size:15px\">${email}</td></tr>\n      <tr><td style=\"padding:6px 0;color:#6B6854;font-size:12px;text-transform:uppercase;letter-spacing:1px\">Tem projeto</td><td style=\"padding:6px 0;font-size:15px\">${temProjeto}</td></tr>\n      <tr><td style=\"padding:6px 0;color:#6B6854;font-size:12px;text-transform:uppercase;letter-spacing:1px;vertical-align:top\">Mensagem</td><td style=\"padding:6px 0;font-size:15px\">${msg}</td></tr>\n    </table>\n    <div style=\"margin-top:24px\">\n      <a href=\"${linkWpp}\" style=\"background:#25D366;color:#ffffff;padding:14px 24px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px;display:inline-block\">💬 Responder no WhatsApp</a>\n    </div>\n    <p style=\"margin-top:24px;font-size:11px;color:#6B6854\">Aviso automático do site da Movelart. Link direto: ${linkWpp}</p>\n  </div>\n</div>\n</body></html>`;\n\nreturn [{ json: { subject, html, nome, email } }];\n"
+      },
+      "id": "b0000-0000-4000-8000-000000000002",
+      "name": "Preparar e-mail",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [780, 360]
+    },
+    {
+      "parameters": {
+        "content": "### 3 — Preparar e-mail\n**Code**\nMonta assunto + HTML +\nbotão WhatsApp pro Arthur\nresponder ao lead.",
+        "height": 200,
+        "width": 220,
+        "color": 7
+      },
+      "id": "a0000-0000-4000-8000-000000000003",
+      "name": "nota-code",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [775, 70]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "c.dornelles97@gmail.com",
+        "subject": "={{ $json.subject }}",
+        "emailType": "html",
+        "message": "={{ $json.html }}",
+        "options": {}
+      },
+      "id": "b0000-0000-4000-8000-000000000003",
+      "name": "Enviar ao Arthur",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
-      "position": [480, 300],
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "PREENCHER_APOS_CRIAR_CREDENCIAL_NO_N8N",
-          "name": "Gmail do Cristian"
-        }
-      }
+      "position": [1060, 360]
+    },
+    {
+      "parameters": {
+        "content": "### 4 — Enviar ao Arthur\n**Gmail → Send**\n⚠️ Trocar `To` pelo\ne-mail do Arthur.\nAtualmente: teste Cristian.",
+        "height": 200,
+        "width": 220,
+        "color": 7
+      },
+      "id": "a0000-0000-4000-8000-000000000004",
+      "name": "nota-gmail",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [1055, 70]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\": true}",
+        "options": {}
+      },
+      "id": "b0000-0000-4000-8000-000000000004",
+      "name": "Responder (200)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 360]
+    },
+    {
+      "parameters": {
+        "content": "### 5 — Responder\n**Respond to Webhook**\n200 `{ ok: true }` pro site.",
+        "height": 200,
+        "width": 220,
+        "color": 7
+      },
+      "id": "a0000-0000-4000-8000-000000000006",
+      "name": "nota-respond",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [1335, 70]
     }
   ],
   "connections": {
@@ -44,7 +189,47 @@
       "main": [
         [
           {
-            "node": "Enviar E-mail",
+            "node": "Validar Secret",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar Secret": {
+      "main": [
+        [
+          {
+            "node": "Preparar e-mail",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Rejeitar (401)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar e-mail": {
+      "main": [
+        [
+          {
+            "node": "Enviar ao Arthur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar ao Arthur": {
+      "main": [
+        [
+          {
+            "node": "Responder (200)",
             "type": "main",
             "index": 0
           }
@@ -52,9 +237,8 @@
       ]
     }
   },
-  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
-  "tags": [{ "name": "movelart" }]
+  "meta": {}
 }
