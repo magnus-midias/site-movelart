@@ -1,0 +1,60 @@
+{
+  "name": "Movelart — Lead via Site",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "movelart-formulario",
+        "responseMode": "onReceived",
+        "responseData": "",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "movelart-formulario"
+    },
+    {
+      "parameters": {
+        "sendTo": "EMAIL_DO_ARTHUR@gmail.com",
+        "subject": "=🔔 Novo lead pelo site — {{ $json.body.nome }}",
+        "emailType": "html",
+        "message": "=<!DOCTYPE html><html lang=\"pt-BR\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{margin:0;padding:0;background:#f5f5f5;font-family:Arial,sans-serif;color:#0D1B2A}.wrap{max-width:600px;margin:32px auto;background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #E5E5E4}.header{background:#0D1B2A;padding:24px 32px}.header h1{margin:0;color:#ffffff;font-size:20px;font-weight:bold}.header p{margin:4px 0 0;color:#ffffff99;font-size:13px}.body{padding:32px}.label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#6B6854;margin:0 0 4px}.value{font-size:15px;color:#0D1B2A;margin:0 0 20px}.badge{display:inline-block;padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600}.badge-sim{background:#f0fdf4;color:#166534;border:1px solid #bbf7d0}.badge-nao{background:#fefce8;color:#854d0e;border:1px solid #fef08a}.mensagem-box{background:#F5F5F5;border-left:3px solid #801611;padding:16px;border-radius:4px;margin:0 0 28px;font-size:14px;line-height:1.6;color:#0D1B2A}.cta{display:block;text-align:center;background:#25D366;color:#ffffff;text-decoration:none;padding:16px 24px;border-radius:8px;font-weight:bold;font-size:16px;margin:8px 0}.footer{background:#F5F5F5;padding:20px 32px;font-size:12px;color:#6B6854;border-top:1px solid #E5E5E4}</style></head><body><div class=\"wrap\"><div class=\"header\"><h1>Novo lead pelo site</h1><p>moveismovelart.com.br · {{ $json.body.timestamp }}</p></div><div class=\"body\"><p class=\"label\">Nome</p><p class=\"value\">{{ $json.body.nome }}</p><p class=\"label\">WhatsApp</p><p class=\"value\">{{ $json.body.whatsapp }}</p><p class=\"label\">E-mail</p><p class=\"value\">{{ $json.body.email || 'Não informado' }}</p><p class=\"label\">Situação do projeto</p><p class=\"value\">{{ $json.body.temProjeto ? '<span class=\"badge badge-sim\">✓ Já tem projeto de arquiteto</span>' : '<span class=\"badge badge-nao\">Ainda não tem projeto</span>' }}</p><p class=\"label\">Mensagem do lead</p><div class=\"mensagem-box\">{{ $json.body.mensagem }}</div><a href=\"{{ $json.body.whatsappLinkLead }}\" class=\"cta\">💬 Responder agora no WhatsApp</a></div><div class=\"footer\">Lead recebido pelo formulário · {{ $json.body.whatsappLinkLead }}</div></div></body></html>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "gmail-send",
+      "name": "Enviar E-mail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [480, 300],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "PREENCHER_APOS_CRIAR_CREDENCIAL_NO_N8N",
+          "name": "Gmail do Cristian"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Enviar E-mail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [{ "name": "movelart" }]
+}

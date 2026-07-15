@@ -84,9 +84,14 @@ export async function POST(req: NextRequest) {
   };
 
   try {
+    const webhookSecret = process.env.N8N_WEBHOOK_SECRET;
+
     const res = await fetch(webhookUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...(webhookSecret ? { "x-webhook-secret": webhookSecret } : {}),
+      },
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(8000),
     });
