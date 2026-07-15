@@ -185,29 +185,36 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Tem projeto */}
-      <label className="flex items-start gap-3 cursor-pointer select-none">
-        <div className="relative mt-0.5 shrink-0 w-5 h-5">
-          <input
-            type="checkbox"
-            checked={dados.temProjeto}
-            onChange={(e) => set("temProjeto", e.target.checked)}
-            className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
-          />
-          <div className={`w-5 h-5 rounded border-2 transition-colors flex items-center justify-center ${
-            dados.temProjeto ? "bg-brand-ebony border-brand-ebony" : "bg-brand-bg border-brand-border"
-          }`}>
-            {dados.temProjeto && (
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={3.5} aria-hidden="true">
-                <path d="M20 6L9 17l-5-5" />
-              </svg>
-            )}
-          </div>
-        </div>
-        <span className="text-sm text-brand-muted leading-relaxed">
-          Já tenho projeto de arquiteto ou designer de interiores
-        </span>
-      </label>
+      {/* Situação do projeto */}
+      <div className="flex flex-col gap-2.5" role="group" aria-labelledby="projeto-label">
+        <p id="projeto-label" className="text-sm font-medium text-brand-dark">
+          Situação do projeto <span className="text-brand-accent" aria-hidden="true">*</span>
+        </p>
+        {([
+          { value: false, label: "Ainda não tenho projeto" },
+          { value: true,  label: "Já tenho projeto de arquiteto ou designer" },
+        ] as const).map((opcao) => (
+          <label key={String(opcao.value)} className="flex items-center gap-3 cursor-pointer select-none">
+            <div className="relative shrink-0 w-5 h-5">
+              <input
+                type="radio"
+                name="temProjeto"
+                checked={dados.temProjeto === opcao.value}
+                onChange={() => set("temProjeto", opcao.value)}
+                className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+              />
+              <div className={`w-5 h-5 rounded-full border-2 transition-colors flex items-center justify-center ${
+                dados.temProjeto === opcao.value ? "border-brand-ebony" : "border-brand-border"
+              }`}>
+                {dados.temProjeto === opcao.value && (
+                  <div className="w-2.5 h-2.5 rounded-full bg-brand-ebony" />
+                )}
+              </div>
+            </div>
+            <span className="text-sm text-brand-muted leading-relaxed">{opcao.label}</span>
+          </label>
+        ))}
+      </div>
 
       {/* Mensagem */}
       <div className="flex flex-col gap-1.5">
